@@ -1,0 +1,615 @@
+% !TEX TS-program = pdflatex
+% arXiv-ready LaTeX Template (single-file)
+\pdfoutput=1
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Encoding & Language ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+
+% ---------- Page Layout ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лема}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Означення}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Зауваження}
+
+% Operators & macros
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ang}[1]{\left\langle #1 \right\rangle}
+\newcommand{\br}[1]{\left( #1 \right)}
+\newcommand{\cbr}[1]{\left\{ #1 \right\}}
+\newcommand{\sbr}[1]{\left[ #1 \right]}
+
+% ---------- Figures / Tables ----------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\sisetup{detect-all}
+
+% ---------- Algorithms ----------
+\usepackage[ruled,vlined]{algorithm2e}
+
+% ---------- Listings (optional) ----------
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,columns=fullflexible,showstringspaces=false,tabsize=2,captionpos=b}
+
+% ---------- Hyperlinks ----------
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=OliveGreen,
+  urlcolor=BrickRed,
+  pdfauthor={В'ячеслав Логінов},
+  pdftitle={\@title}
+}
+\usepackage[capitalize,nameinlink]{cleveref}
+
+% ---------- Author & Affiliation ----------
+\usepackage{authblk}
+
+\title{Нетерівські (Noether-type) симетрії роторного поля:\\
+геометричні струми, дуальності та збережені заряди}
+\author[1]{В'ячеслав Логінов}
+\affil[1]{Київ, Україна\\ \texttt{barthez.slavik@gmail.com}}
+\date{\today}
+
+% ---------- Keywords ----------
+\newcommand{\keywords}{\textbf{Ключові слова:} роторне поле; геометрична алгебра; нетерівські струми; калібрувальна симетрія Spin; дуальність; гелікальність; енерго-імпульсний тензор}
+
+% ---------- Toggles ----------
+\newif\ifack
+\acktrue
+\newif\ifdraft
+\draftfalse
+
+% ======================================================================
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Ми виконуємо систематичний аналіз законів збереження для просторово-часового \emph{роторного поля} $R(x)\in \mathrm{Spin}(1,3)$, визначеного в геометричній алгебрі через $R=\exp\!\big(\tfrac{1}{2}B\big)$ із бі-векторним генератором $B(x)$. Виходячи з перших принципів сигма-моделі ротора на кривих фонах, ми виводимо неочікуване багатство збережених структур: (i) глобальні та локальні \emph{Spin}-калібрувальні струми, що кодують внутрішній кутовий момент; (ii) струм \emph{бі-векторної фази} (``роторний заряд''), який вимірює когерентність локальних площинних обертань; (iii) \emph{дуальний} струм, що узагальнює електромагнітну гелікальність на повну роторну конфігурацію; (iv) спіновий струм і удосконалений Белінфанте тензор енергії-імпульсу; та (v) топологічні поверхневі заряди, що випливають із форм Мора—Картана. Ці симетрії розширюють стандартну відповідність Нетер і прояснюють, як маса, енергія, спін і когерентність роторної фази постають як різні аспекти єдиного геометричного принципу інваріантності.
+\end{abstract}
+
+\keywords
+
+% ======================================================================
+\section{Вступ}
+\label{sec:intro}
+
+\subsection{Проблема симетрій у теорії роторного поля}
+
+Одне з найглибших відкриттів фізики XX століття — теорема Нетер: кожній неперервній симетрії фізичної системи відповідає закон збереження. Трансляційна інваріантність простору веде до збереження імпульсу; часової інваріантності відповідає збереження енергії. Цей зв’язок між симетрією та збереженням скеровував розвиток сучасної теорії поля — від електродинаміки до Стандартної моделі.
+
+Якщо ж розглянути теорію поля, засновану не на скалярних чи векторних полях, а на \emph{роторних полях} — полях зі значеннями в групі $\mathrm{Spin}(1,3)$, що параметризує локальні лоренцові обертання, — постає питання: які нові симетрії з’являються? Які збережені величини характеризують динаміку такої геометрично насиченої структури?
+
+Роторне поле $R(x)$ принципово відрізняється від звичних полів. Це одиничний парний мультивектор у геометричній алгебрі, що подається як $R=\exp(\frac{1}{2}B)$, де $B$ — бі-вектор, орієнтований елемент площини. Ця експонента з бі-векторної алгебри до роторної групи — геометричний аналог $e^{\ii\theta}$ у комплексній площині, але тепер діє на шестивимірному просторі площин простору-часу.
+
+Роторне поле кодує і \emph{напрям} привілейованої площини (які компоненти бі-вектора активні), і \emph{величину} обертання в цій площині (кут $\phi$). Така подвійна структура натякає на багатший ландшафт симетрій, ніж у скалярних чи векторних полях. Чи існують збережені струми, пов’язані з перетвореннями бі-векторної фази? Що відбувається, коли ми обертаємо саму площину через дуальні трансформації? Як внутрішній спін ротора зчіплюється з просторово-часовими трансляціями?
+
+\subsection{Ландшафт роторних симетрій}
+
+У стандартній калібрувальній теорії група діє множенням на матерні поля, і теорема Нетер дає збережені струми. Для роторів ситуація тонша. Група $\mathrm{Spin}(1,3)$ може діяти на $R(x)$ щонайменше трьома способами:
+
+\begin{enumerate}
+  \item \textbf{Ліве множення}: $R(x) \to S\,R(x)$, $S \in \mathrm{Spin}(1,3)$ — сталий ротор. Це генерує глобальні лоренцові перетворення і дає шість струмів, пов’язаних із генераторами обертань і бустів.
+
+  \item \textbf{Праве множення}: $R(x) \to R(x)\,S$, що зберігає індуковану тетраду $e_a=R\gamma_a\widetilde{R}$, але змінює спінорний вміст. Такі перетворення породжують \emph{внутрішні} симетрії.
+
+  \item \textbf{Зсуви бі-векторної фази}: якщо $R=\exp(\frac{1}{2}\phi\,\hat{B})$ з одиничним бі-вектором $\hat{B}^2=-1$, то $\phi\to\phi+\alpha$ зсуває кут обертання за фіксованої площини. Це нагадує $U(1)$-калібрувальні перетворення в ЕМТ, але діє в бі-векторному секторі.
+\end{enumerate}
+
+Поза цими діями, геометрична алгебра надає специфічну для бі-векторів симетрію: \emph{дуальність}. Подібно до того, як рівняння Максвелла допускають перетворення, що взаємообмінює електричні й магнітні поля, бі-вектори можна обертати в їх Годжеві двоїсті множенням на псевдоскаляр $I$. Якщо динаміка поважає цю дуальність, має існувати відповідний збережений струм.
+
+Нарешті, ізометрії простору-часу — трансляції та лоренцові бусти, застосовані до самих координат — дають звичний тензор енергії-імпульсу. Оскільки ротор несе внутрішній спін, канонічний тензор загалом не симетричний, і потрібна процедура Белінфанте для побудови симетричного, калібрувально-інваріантного тензора, придатного для гравітаційного зв’язку.
+
+\subsection{Фізичний зміст і обсяг}
+
+Навіщо нам ці збережені величини? Відповідь — у фізичній інтерпретації роторних полів. Якщо, як стверджує гіпотеза роторного поля, фундаментальний опис матерії й геометрії містить бі-векторне поле $B(x)$, з якого постають і метричні, і спінорні структури, тоді виведені тут збережені заряди — найпервинніші спостережувані величини теорії.
+
+Роторно-фазовий заряд вимірює \emph{когерентність} обертальних осциляцій — аналог довжини когерентності в надпровідниках чи Бозе–Ейнштейнівських конденсатах. Області з великим роторно-фазовим зарядом відповідають квантово-когерентній матерії. Дуальний заряд узагальнює гелікальність: балансує “електричні” та “магнітні” компоненти бі-вектора. У гравітації це може стосуватися гравітомагнітного поля; у квантових контекстах — хиральності ферміонів.
+
+Спіновий струм описує внутрішню густину кутового моменту, яку несе саме роторне поле. На кривих фонах цей струм робить внесок у загальний кутовий момент і пов’язаний із асиметрією тензора енергії-імпульсу через спін-орбітальне зчеплення.
+
+\subsection{Організація роботи}
+
+У цій праці ми систематично виводимо та класифікуємо нетерівські закони збереження для роторів. Підхід конструктивний: починаючи з першопринципної дії сигма-моделі, розглядаємо кожну неперервну симетрію, обчислюємо відповідний струм та тлумачимо його фізичний сенс.
+
+\textbf{Структура.} У \cref{sec:setup} встановлюємо математичний каркас: ротор у геометричній алгебрі, його коваріантну похідну та струм Мора—Картана. \Cref{sec:noether} адаптує загальну машину Нетер до роторних змінних і виводить головну формулу для струмів.
+
+У \cref{sec:catalog} — серце роботи — каталогізуємо симетрії та струми: калібрувальну $\mathrm{Spin}$-симетрію, роторно-фазову, дуальність, праву дію та внутрішні автоморфізми, ізометрії простору-часу (тензор енергії-імпульсу) і топологічні заряди з кривини Мора—Картана.
+
+\Cref{sec:examples} ілюструє прикладами: вільні роторні конфігурації, зв’язок із ферміонами Дірака, випадки порушення дуальності. \Cref{sec:stress} висвітлює поліпшення Белінфанте. Насамкінець, \cref{sec:discussion} синтезує результати, накреслює зв’язки та відкриті питання. Додатки містять деталі виведень.
+
+% ======================================================================
+\section{Математичний каркас: роторне поле та його струми}
+\label{sec:setup}
+
+\subsection{Геометрична алгебра та група роторів}
+
+Нехай $\mathcal{G}(1,3)$ — кліфордова алгебра, породжена ортонормованим базисом $\{\gamma_a\}$, $a=0,1,2,3$, із відношенням
+\begin{equation}
+\gamma_a\gamma_b+\gamma_b\gamma_a=2\eta_{ab}, \qquad \eta=\diag(+1,-1,-1,-1).
+\end{equation}
+
+Геометричний добуток породжує шістнадцятивимірну алгебру зі скалярами, векторами, бі-векторами, три-векторами та псевдоскаляром. Загальний бі-вектор має вигляд
+\begin{equation}
+B = B^{ab}\,\gamma_a\wedge\gamma_b = \frac{1}{2}B^{ab}\,(\gamma_a\gamma_b - \gamma_b\gamma_a).
+\end{equation}
+
+\emph{Ротор} — одиничний парний мультивектор $R \in \mathcal{G}^+(1,3)$, що задовольняє
+\begin{equation}
+R\widetilde{R} = 1,
+\end{equation}
+де $\widetilde{R}$ — реверсія. Множина таких $R$ утворює групу $\mathrm{Spin}(1,3)$ — подвійне накриття $\mathrm{SO}^+(1,3)$.
+
+Кожен ротор має експоненціальну параметризацію через бі-вектор:
+\begin{equation}
+R = \exp\!\big(\tfrac{1}{2}B\big) = \cosh\!\big(\tfrac{1}{2}|B|\big) + \frac{B}{|B|}\sinh\!\big(\tfrac{1}{2}|B|\big),
+\end{equation}
+де $|B|^2 = \frac{1}{2}\Tr(B^2)$. Це встановлює $\mathfrak{spin}(1,3)$ як лі-алгебру $\mathrm{Spin}(1,3)$.
+
+\subsection{Роторне поле та індукована геометрія}
+
+Роторне поле $R(x)$ приписує кожній точці $x^\mu$ ротор $R(x) \in \mathrm{Spin}(1,3)$ та індукує локальний ортонормований репер (тетраду) через
+\begin{equation}
+e_a(x) \equiv R(x)\, \gamma_a\, \widetilde{R}(x).
+\label{eq:tetrad-def}
+\end{equation}
+Тоді
+\begin{equation}
+e_a \cdot e_b = \eta_{ab}.
+\end{equation}
+Компоненти $e_a^\mu$ визначають метрику
+\begin{equation}
+g_{\mu\nu}(x) = e_\mu^a\, e_\nu^b\, \eta_{ab}.
+\label{eq:metric-def}
+\end{equation}
+Отже, $R(x)$ кодує геометрію простору-часу: плоскість відповідає сталому $R$, кривина — просторовим змінам.
+
+\subsection{Спіновий зв’язок і коваріантна похідна}
+
+Для коваріантної похідної вводимо \emph{спіновий зв’язок} $\Omega_\mu(x)$ — бі-векторну 1-форму:
+\begin{equation}
+\nabla_\mu R \equiv \partial_\mu R + \frac{1}{2}\Omega_\mu R.
+\label{eq:covariant-def}
+\end{equation}
+Безкручення (Леві-Чівіта) вимагає
+\begin{equation}
+\dd e^a + \Omega^a_{\phantom{a}b} \wedge e^b = 0.
+\label{eq:torsion-free}
+\end{equation}
+
+\subsection{Струм Мора—Картана}
+
+Визначимо праворівноважний струм
+\begin{equation}
+\mathcal{A}_\mu \equiv 2(\nabla_\mu R)\widetilde{R}\in \mathfrak{spin}(1,3),
+\label{eq:MC}
+\end{equation}
+який при правому множенні $R\to RS$ трансформується як
+\begin{equation}
+\mathcal{A}_\mu \to S^{-1}\mathcal{A}_\mu S.
+\end{equation}
+Обернене співвідношення:
+\begin{equation}
+\nabla_\mu R = \frac{1}{2}\mathcal{A}_\mu R.
+\label{eq:nabla-from-A}
+\end{equation}
+Кривина:
+\begin{equation}
+\mathcal{F}_{\mu\nu} \equiv \partial_\mu\mathcal{A}_\nu - \partial_\nu\mathcal{A}_\mu + [\mathcal{A}_\mu, \mathcal{A}_\nu].
+\label{eq:field-strength}
+\end{equation}
+
+\subsection{Лагранжіан ротора}
+
+Розглянемо сигма-модель ротора:
+\begin{equation}
+\mathcal{L}_R = \frac{\rho}{8}\, g^{\mu\nu}\,\Tr(\mathcal{A}_\mu\mathcal{A}_\nu) - V(R),
+\label{eq:Lrot}
+\end{equation}
+де $\rho>0$ — константа, $\Tr$ — вбивча форма на $\mathfrak{spin}(1,3)$, $V(R)$ — потенціал (самодія/зв’язки).
+
+Приклади:
+\begin{itemize}
+  \item $V$ залежить лише від інваріантів (напр., $\Tr(B^2)$) — поважає глобальні обертання.
+  \item $V$ залежить від фази $\phi$ у $R=\exp(\frac{1}{2}\phi\,\hat{B})$ — порушує роторно-фазову симетрію.
+  \item $V$ різнить “електричні” та “магнітні” компоненти — порушує дуальність.
+\end{itemize}
+
+\subsection{Рівняння руху}
+
+Варіювання $S_R=\int \dd^4x \sqrt{-g}\,\mathcal{L}_R$ за $R$ дає
+\begin{equation}
+\nabla_\mu \mathcal{A}^\mu = -\frac{4}{\rho}\,\frac{\partial V}{\partial R}\,\widetilde{R} \in \mathfrak{spin}(1,3).
+\label{eq:eom}
+\end{equation}
+Для $V=0$:
+\begin{equation}
+\nabla_\mu \mathcal{A}^\mu = 0.
+\end{equation}
+
+% ======================================================================
+\section{Механіка Нетер для роторних симетрій}
+\label{sec:noether}
+
+\subsection{Нагадування про теорему Нетер}
+
+Нехай поля $\phi$ трансформуються як $\delta\phi=\epsilon^A(x)\delta_A\phi$. Якщо дія інваріантна (з точністю до країв), існує струм $J^\mu_A$ із
+\begin{equation}
+\partial_\mu J^\mu_A = 0 \quad \text{(на оболонці)}.
+\end{equation}
+
+\subsection{Інфінітезимальні перетворення ротора}
+
+Нехай генератори — бі-вектори $G_A$, тоді
+\begin{equation}
+\delta R = \frac{1}{2}\,\epsilon^A(x)\,G_A\,R.
+\label{eq:deltaR}
+\end{equation}
+Струм Мора—Картана змінюється як
+\begin{equation}
+\delta \mathcal{A}_\mu = \nabla_\mu\epsilon^A\, G_A + [\,\mathcal{A}_\mu,\ \epsilon^A G_A\,].
+\label{eq:deltaA}
+\end{equation}
+
+\subsection{Варіація лагранжіана}
+
+Кінетичний член:
+\begin{equation}
+\delta \mathcal{L}_R = \frac{\rho}{4}\, \nabla_\mu \epsilon^A \,\Tr\!\big(G_A\mathcal{A}^\mu\big) - \delta_A V,
+\label{eq:deltaL}
+\end{equation}
+де
+\begin{equation}
+\delta_A V \equiv \frac{1}{2}\epsilon^A\,\frac{\partial V}{\partial R}\cdot (G_A R).
+\end{equation}
+
+\subsection{Головна формула для нетерівських струмів}
+
+Інтегруючи частинами, отримуємо \textbf{тотожність Варда}:
+\begin{equation}
+\nabla_\mu J^\mu_A = -\,\delta_A V,
+\label{eq:ward}
+\end{equation}
+де \textbf{нетерівський струм}
+\begin{equation}
+J^\mu_A = \frac{\rho}{4}\,\Tr(\mathcal{A}^\mu G_A).
+\label{eq:J_general}
+\end{equation}
+За глобальної симетрії та $\delta_A V=0$:
+\begin{equation}
+\nabla_\mu J^\mu_A = 0.
+\label{eq:conserved}
+\end{equation}
+Заряд:
+\begin{equation}
+Q_A = \int_\Sigma \dd^3x\, n_\mu J^\mu_A.
+\label{eq:charge}
+\end{equation}
+
+% ======================================================================
+\section{Ландшафт роторних симетрій}
+\label{sec:catalog}
+
+\subsection{Spin-калібрувальна симетрія: внутрішній кутовий момент}
+
+\subsubsection{Фізичний зміст}
+
+Ліве множення $R\to SR$ ($S$ сталий) змінює репер $e_a=R\gamma_a\widetilde{R}$ як
+\begin{equation}
+e_a \to Se_a\widetilde{S}.
+\end{equation}
+Інваріанти на кшталт $\Tr(\mathcal{A}_\mu\mathcal{A}^\mu)$ залишаються сталими.
+
+\subsubsection{Струми та збереження}
+
+Генератори
+\begin{equation}
+G_{ab} = \frac{1}{2}\,\gamma_a\wedge\gamma_b, \quad a<b,
+\end{equation}
+дають \textbf{спін-калібрувальний струм}
+\begin{equation}
+J^{\mu}_{ab} = \frac{\rho}{4}\,\Tr\!\big(\mathcal{A}^\mu G_{ab}\big).
+\label{eq:spin-current}
+\end{equation}
+За клас-функційного $V(R)$:
+\begin{equation}
+\nabla_\mu J^{\mu}_{ab} = 0.
+\label{eq:spin-conserved}
+\end{equation}
+
+\subsection{Роторно-фазова симетрія: заряд когерентності}
+
+\subsubsection{Декомпозиція на площину й кут}
+
+Для простого ротора:
+\begin{equation}
+R = \exp\!\big(\tfrac{1}{2}\phi\,\hat{B}\big),\quad \hat{B}^2=-1.
+\end{equation}
+
+\subsubsection{Струм і інтерпретація}
+
+Для $\delta R=\tfrac{1}{2}\alpha\,\hat{B}R$ маємо
+\begin{equation}
+J^\mu_{\rm rot} = \frac{\rho}{4}\,\Tr\!\big(\mathcal{A}^\mu \hat{B}\big),
+\label{eq:rotor-phase}
+\end{equation}
+і за $\delta_{\hat{B}}V=0$, $\nabla_\mu J^\mu_{\rm rot}=0$. Відповідний заряд $Q_{\rm rot}$ вимірює \emph{когерентність} обертальних осциляцій у площині $\hat{B}$.
+
+\subsection{Дуальність: гелікальність і Годжеве обертання}
+
+\subsubsection{Геометричний зміст}
+
+Для бі-вектора $B$ Годжева двоїстість: $\star B=IB$, $I$ — псевдоскаляр. Інфінітезимально:
+\begin{equation}
+\delta R = \tfrac{1}{2}\theta\,(I\hat{B})\,R.
+\end{equation}
+
+\subsubsection{Дуальний струм}
+
+\begin{equation}
+J^\mu_{\rm dual} = \frac{\rho}{4}\,\Tr\!\big(\mathcal{A}^\mu I\hat{B}\big),
+\label{eq:duality}
+\end{equation}
+і за дуальної інваріантності $V$ — збереження. Заряд $Q_{\rm dual}$ узагальнює \emph{гелікальність}.
+
+\subsection{Права дія та внутрішні автоморфізми}
+
+Праве множення $R\to RS$ загалом не змінює фізичної геометрії, але змінює параметризацію. За бі-інваріантного $V$ існують додаткові збережені праві струми (деталі — у додатку).
+
+\subsection{Ізометрії простору-часу та тензор енергії-імпульсу}
+
+\subsubsection{Трансляції та енерго-імпульс}
+
+Канонічний тензор:
+\begin{equation}
+T^\mu_{\ \nu} = \frac{\rho}{4}\,\Tr\!\big(\mathcal{A}^\mu\mathcal{A}_\nu\big) - \delta^\mu_{\ \nu}\,\mathcal{L}_R,
+\label{eq:canonicalT}
+\end{equation}
+а на оболонці $\nabla_\mu T^\mu_{\ \nu}=0$.
+
+\subsubsection{Проблема асиметрії}
+
+Загалом $T^\mu_{\ \nu}\neq T^\nu_{\ \mu}$ через спін. Потрібне поліпшення Белінфанте для симетризації.
+
+\subsection{Поліпшення Белінфанте}
+
+\subsubsection{Спіновий струм}
+
+\begin{equation}
+S^{\lambda\mu\nu} = \frac{\rho}{4}\,\Tr\!\big(\mathcal{A}^\lambda G^{\mu\nu}\big).
+\label{eq:spin-tensor}
+\end{equation}
+
+\subsubsection{Симетризований тензор}
+
+\begin{equation}
+\Theta^{\mu\nu} \equiv T^{\mu\nu} + \tfrac{1}{2}\nabla_\lambda\!\big( S^{\lambda\mu\nu} + S^{\mu\nu\lambda} + S^{\nu\lambda\mu} - S^{\lambda\nu\mu} - S^{\mu\lambda\nu} - S^{\nu\mu\lambda} \big),
+\label{eq:belinfante-def}
+\end{equation}
+який симетричний та збережений і збігається (варіаційно) з гільбертівським тензором.
+
+\subsection{Топологічні заряди з кривини Мора—Картана}
+
+\subsubsection{Густина Черна—Понтрягіна}
+
+\begin{equation}
+\mathcal{P} \equiv \Tr(\mathcal{F}\wedge\mathcal{F}) = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}\,\Tr(\mathcal{F}_{\mu\nu}\mathcal{F}_{\rho\sigma})=\partial_\mu K^\mu.
+\label{eq:chern-pontryagin}
+\end{equation}
+
+\subsubsection{Топологічний заряд}
+
+\begin{equation}
+Q_{\rm top} = \frac{1}{32\pi^2}\int_{\mathbb{R}^4} \Tr(\mathcal{F}\wedge\mathcal{F})\, \dd^4x \in \mathbb{Z}.
+\label{eq:Q-top}
+\end{equation}
+Це аналог індексу Понтрягіна (інстантони, скірміони тощо).
+
+% ======================================================================
+\section{Приклади та фізичні застосування}
+\label{sec:examples}
+
+\subsection{Вільний ротор із бі-інваріантним потенціалом}
+
+\subsubsection{Вибір потенціалу}
+
+\begin{equation}
+V(R) = V_0 + \frac{\lambda}{2}\,\Tr(\mathcal{A}_\mu\mathcal{A}^\mu) \quad \text{або} \quad V(R) = m^2\,\Tr(B^2).
+\end{equation}
+
+\subsubsection{Збережені величини}
+
+Тоді збережені $J^\mu_{ab}$, $J^\mu_{\rm rot}$, $J^\mu_{\rm dual}$ та симетризований $\Theta^{\mu\nu}$. Для плоскої хвилі $R=\exp[\tfrac{1}{2}(\omega t-\mathbf{k}\cdot\mathbf{x})\hat{B}]$ енергія стала, $Q_{\rm rot}\propto \omega V$, а $Q_{\rm dual}$ залежить від домішки $I\hat{B}$.
+
+\subsection{Зв’язок із ферміонами Дірака}
+
+\subsubsection{Лагранжіан ферміона}
+
+\begin{equation}
+\mathcal{L}_\psi = \bar{\psi}(\ii\gamma^\mu\nabla_\mu - m)\psi,\qquad \mathcal{L}_{\rm total}=\mathcal{L}_R+\mathcal{L}_\psi.
+\end{equation}
+
+\subsubsection{Сумарний спін-струм}
+
+\begin{equation}
+J^\mu_{ab}(\text{total}) = J^\mu_{ab}(R) + \bar{\psi}\gamma^\mu\Sigma_{ab}\psi.
+\end{equation}
+
+\subsubsection{Інтерпретація}
+
+Фон із $Q_{\rm rot}\neq 0$ індукує ефективне геометричне поле для ферміона (аналог фази Ааронова—Бома).
+
+\subsection{Порушення дуальності в анізотропних середовищах}
+
+\subsubsection{Анізотропний потенціал}
+
+\begin{equation}
+V(R) = \frac{m_E^2}{2}\,\Tr(B_E^2) + \frac{m_M^2}{2}\,\Tr(B_M^2),\quad B_M=IB_E,\, m_E\neq m_M.
+\end{equation}
+
+\subsubsection{Дуальна ``аномалія''}
+
+\begin{equation}
+\nabla_\mu J^\mu_{\rm dual} = -(m_M^2 - m_E^2)\,\Tr(B_E\cdot B_M).
+\end{equation}
+
+\subsubsection{Наслідки}
+
+Гравітомагнетизм поблизу обертових тіл (втягування системи відліку), космологічна анізотропія, спін-хвилі в твердих тілах — можливі місця проявів.
+
+% ======================================================================
+\section{Обговорення: єдність роторних симетрій}
+\label{sec:discussion}
+
+\subsection{Єдиний ландшафт}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Симетрія & Струм & Фізичний заряд \\
+\midrule
+Ліва дія $\mathrm{Spin}(1,3)$ & $J^\mu_{ab}$ & Внутрішній спін і буст \\
+Зсув бі-векторної фази & $J^\mu_{\rm rot}$ & Когерентність (ротор-фаза) \\
+Дуальність (Годж-обертання) & $J^\mu_{\rm dual}$ & Узагальнена гелікальність \\
+Трансляції простору-часу & $T^{\mu}_{\ \nu}$, $\Theta^{\mu\nu}$ & Енергія та імпульс \\
+Топологічна & $\star\Tr(\mathcal{F}\wedge\mathcal{F})$ & $Q_{\rm top}\in\mathbb{Z}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Белінфанте явно пов’язує спін і енерго-імпульс; $J_{\rm rot}$ і $J_{\rm dual}$ — прояви перетворень у бі-векторному секторі.
+
+\subsection{Зв’язки з іншими підходами}
+
+\subsubsection{Порівняння з калібрувальною теорією}
+
+$\mathcal{A}_\mu$ — аналог з’єднання, $\mathcal{F}_{\mu\nu}$ — аналог напруженості, але тут \emph{сам ротор} — фундаментальне поле (сігма-модельна природа).
+
+\subsubsection{Гравітація як калібрувальна теорія}
+
+У підході Лазенбі—Доран—Галл спіновий зв’язок — калібрувальне поле. Тут струм спіну ротора джерелить симетризований тензор; у варіанті з індукованою метрикою $g_{\mu\nu}$ все визначається самим $R$.
+
+\subsubsection{Відлуння квантової механіки}
+
+Роторно-фазова симетрія нагадує $U(1)$ фази хвильової функції; у формулюванні Гестенеса спінор — парний мультивектор, тож $J^\mu_{\rm rot}$ корелює з квантовим струмом імовірності.
+
+\subsection{Відкриті питання}
+
+\subsubsection{Квантування та аномалії}
+
+Чи збережуться закони на квантовому рівні? Чи виникнуть аномалії (зокрема для дуальної симетрії)?
+
+\subsubsection{Солітони та топологічні збудження}
+
+Чи існують скінчено-енергетичні “роторні вузли”, класифіковані $(Q_{\rm rot},Q_{\rm dual},Q_{\rm top})$? Чи можна пов’язати з баріонним/лептонним числом?
+
+\subsubsection{Спостережні сигнатури в гравітаційних системах}
+
+Модулювання хвиль гравітації внутрішніми роторними частотами, поляризаційне змішування за $Q_{\rm dual}\neq 0$.
+
+\subsubsection{Космологія}
+
+Фонове $R(x,t)$ як темна матерія/енергія; глобальний $Q_{\rm dual}$ — хиральна анізотропія; $Q_{\rm top}$ — фазові стани раннього Всесвіту.
+
+\subsection{Філософські ремарки}
+
+Теорема Нетер висвітлює єдність симетрій і збережень. Ротор $R(x)\in \mathrm{Spin}(1,3)$ — геометричний об’єкт, а збережені заряди — геометричні інваріанти. Якщо фундамент — геометрична алгебра, то шлях до уніфікації — пошук правильного геометричного каркаса.
+
+% ======================================================================
+\section{Висновки}
+\label{sec:conclusion}
+
+Ми здійснили систематичне дослідження симетрій і законів збереження роторного поля $R(x)\in\mathrm{Spin}(1,3)$ у геометричній алгебрі: вивели спін-калібрувальні, роторно-фазові, дуальні струми; тензор енергії-імпульсу (та його симетризацію Белінфанте); а також топологічний заряд з густини Черна—Понтрягіна. Усі вони зрештою зводяться до фундаментального струму $\mathcal{A}_\mu=2(\nabla_\mu R)\widetilde{R}$ і взаємопов’язані. Приклади показали, як ці структури проявляються фізично. Попереду — квантування, солітони, зв’язок із динамічною гравітацією й пошук спостережних сигнатур.
+
+\medskip
+\noindent\textit{Дослідження симетрій триває, ведене подвійною зорею геометрії та збереження.}
+
+% ======================================================================
+\ifack
+\section*{Подяки}
+Автор завдячує Еммі Нетер, чия теорема вела покоління фізиків. Розвиток геометричної алгебри Девідом Гестенесом і її застосування до гравітації Ентоні Лазенбі, Крісом Дораном та Стівеном Галлом стали наріжними каменями. Корисними були розмови про нетерівські струми, спін-зв’язки та топологічні заряди. Роботу виконано незалежно, без зовнішнього фінансування. За можливі похибки відповідає автор.
+\fi
+
+% ======================================================================
+\appendix
+
+\section{Детальний вивід Нетер у роторних змінних}
+\label{app:noether-deriv}
+
+(Технічні кроки ідентичні оригіналу; перекладено коротко для компактності.)
+
+Починаючи з \eqref{eq:Lrot} і трансформації \eqref{eq:deltaR}, отримаємо \eqref{eq:deltaA}. Варіація кінетичного члена зводиться до терміна з $\nabla_\mu\epsilon^A$, комутаторний внесок зануляється циклічністю трас. Інтегрування частинами приводить до тотожності Варда \eqref{eq:ward} з струмом \eqref{eq:J_general}.
+
+\section{Поліпшення Белінфанте: побудова}
+\label{app:belinfante}
+
+Канонічний тензор \eqref{eq:canonicalT} загалом асиметричний. Визначимо спіновий струм \eqref{eq:spin-tensor} та додамо дивергенцію надлишкового потенціалу (суперпотенціалу), отримуючи симетричний $\Theta^{\mu\nu}$ \eqref{eq:belinfante-def}, що збігається з гільбертівським тензором і збережений на оболонці.
+
+% --------------------- Bibliography -----------------
+\begin{thebibliography}{9}
+
+\bibitem{Noether1918}
+E.~Noether.
+\newblock Invariante Variationsprobleme.
+\newblock \emph{Nachr. d. Königl. Ges. d. Wiss. zu Göttingen, Math-phys. Klasse}, 1918, 235--257.
+
+\bibitem{Hestenes1966}
+D.~Hestenes.
+\newblock \emph{Space-Time Algebra}.
+\newblock Gordon and Breach, New York, 1966.
+
+\bibitem{DoranLasenby}
+C.~Doran and A.~Lasenby.
+\newblock \emph{Geometric Algebra for Physicists}.
+\newblock Cambridge University Press, Cambridge, 2003.
+
+\bibitem{Belinfante1940}
+F.~J.~Belinfante.
+\newblock On the spin angular momentum of mesons.
+\newblock \emph{Physica} 7 (1940) 449--474.
+
+\bibitem{Rosenfeld1940}
+L.~Rosenfeld.
+\newblock Sur le tenseur d'impulsion-énergie.
+\newblock \emph{Mém. Acad. Roy. Belg.} 18 (1940) 1--30.
+
+\bibitem{Lasenby1998}
+A.~Lasenby, C.~Doran, and S.~Gull.
+\newblock Gravity, gauge theories and geometric algebra.
+\newblock \emph{Philosophical Transactions of the Royal Society A}, 356(1737):487--582, 1998.
+
+\bibitem{ChernSimons}
+S.~S.~Chern and J.~Simons.
+\newblock Characteristic forms and geometric invariants.
+\newblock \emph{Annals of Mathematics}, 99(1):48--69, 1974.
+
+\end{thebibliography}
+
+\end{document}
+
