@@ -269,7 +269,24 @@ For translational motion, consider a vector observable $\mathbf{p}$ (linear mome
 \partial_t \mathbf{p}' \approx \partial_t \mathbf{p} + \tfrac{1}{2}(\partial_t\Biv)\, \mathbf{p} - \tfrac{1}{2}\mathbf{p}\,(\partial_t\Biv).
 \end{equation}
 
-In the regime where rotor coupling to translational momentum is mediated by a vector flux $\mathbf{F}$, we recover
+The bivector-vector product $\Biv \mathbf{p}$ contains both vector and trivector components. In three dimensions, the trivector part vanishes upon further operations, leaving the vector component. Explicitly, for $\Biv = B^{ij}\e_i\wedge\e_j$ and $\mathbf{p} = p^k\e_k$, the commutator structure yields:
+\begin{equation}
+[\Biv, \mathbf{p}] = (\Biv\mathbf{p} - \mathbf{p}\Biv) = 2\,\vecp{\Biv \mathbf{p}} = 2\,(\mathbf{B} \times \mathbf{p}),
+\end{equation}
+where $\mathbf{B}$ is the dual vector to the bivector $\Biv$, and $\times$ denotes the cross product.
+
+Thus:
+\begin{equation}
+\partial_t \mathbf{p}' \approx \partial_t \mathbf{p} + (\partial_t\mathbf{B}) \times \mathbf{p}.
+\end{equation}
+
+Now, the rotor dynamics~\eqref{eq:rotor-dynamics} couple spatial gradients of the bivector field to the momentum. When a particle moves through an inhomogeneous rotor field with spatial gradient $\nabla\Biv$, the effective force experienced is the vector component of the bivector-momentum coupling:
+\begin{equation}
+\mathbf{F} = \vecp{\mathcal{J} \cdot \mathbf{p}} = \alpha\,(\nabla \times \mathbf{B}) \cdot \mathbf{p} + \beta\,\mathbf{B},
+\end{equation}
+where $\alpha, \beta$ are coupling coefficients depending on the regime (electromagnetic, gravitational, etc.).
+
+In the limit where the rotor field mediates gravitational or electromagnetic interactions, the effective force becomes:
 \begin{equation}
 \partial_t \mathbf{p} = \mathbf{F}.
 \label{eq:newton-translational}
@@ -281,7 +298,7 @@ Identifying $\mathbf{p} = m\mathbf{v}$ and $\mathbf{F}$ as force, this is \textb
 \label{eq:newton-final}
 \end{equation}
 
-Thus the fundamental law of classical mechanics is not postulated but \emph{derived} as the low-amplitude, slowly-varying limit of rotor field dynamics. Inertial frames correspond to regions of uniform rotor flow ($\D\Biv = 0$), and deviations from uniformity manifest as forces.
+Thus the fundamental law of classical mechanics is not postulated but \emph{derived} as the low-amplitude, slowly-varying limit of rotor field dynamics. Inertial frames correspond to regions of uniform rotor flow ($\D\Biv = 0$), and deviations from uniformity manifest as forces. The gravitational force arises from spatial curvature of the bivector field (coupling to $\nabla \times \mathbf{B}$), while electromagnetic forces correspond to direct bivector coupling (the $\beta\mathbf{B}$ term).
 
 \subsubsection{Euler's Equations from Rotor Composition}
 

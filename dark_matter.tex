@@ -1,0 +1,580 @@
+% !TEX TS-program = pdflatex
+% arXiv-ready LaTeX (single-file) — Dark Matter from Rotor Fields
+% Compiles with pdflatex on arXiv. No fontspec, no minted.
+
+\pdfoutput=1
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Encoding & Language ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% ---------- Page Layout ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{enumitem}
+\numberwithin{equation}{section}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Operators & Macros ----------
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\sgn}{\mathrm{sgn}}
+
+% GA / Rotor-friendly macros
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Cl}{\mathcal{G}}               % Clifford algebra
+\newcommand{\rev}[1]{\widetilde{#1}}        % reversion
+\newcommand{\grade}[2]{\left\langle #1 \right\rangle_{#2}}
+\newcommand{\bivec}{\mathcal{B}}            % space of bivectors
+\newcommand{\Rotor}{\mathcal{R}}            % space of rotors
+\newcommand{\Rfield}{R(x)}                  % rotor field
+\newcommand{\Bfield}{B(x)}                  % bivector field
+\newcommand{\Curv}{F_{\mu\nu}}              % curvature bivector
+\newcommand{\Omeg}{\Omega_\mu}              % spin connection
+\newcommand{\Lag}{\mathcal{L}}              % Lagrangian density
+
+% ---------- Figures / Tables ----------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{detect-all}
+
+% ---------- Algorithms (pdflatex-friendly) ----------
+\usepackage[ruled,vlined]{algorithm2e}
+
+% ---------- Code Listings (no minted) ----------
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible,
+  showstringspaces=false,
+  tabsize=2,
+  captionpos=b
+}
+
+% ---------- Hyperlinks ----------
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!60!black,
+  pdfauthor={Viacheslav Loginov},
+  pdftitle={Dark Matter as Phase-Dephased Rotor Vacuum}
+}
+\usepackage[capitalize,nameinlink]{cleveref}
+
+% ---------- Author & Affiliation ----------
+\usepackage{authblk}
+
+\title{\textbf{Dark Matter as Phase-Dephased Rotor Vacuum:\\
+A Geometric Algebra Formulation and Testable Predictions}}
+
+\author[1]{Viacheslav Loginov}
+\affil[1]{Kyiv, Ukraine\\ \texttt{barthez.slavik@gmail.com}}
+
+\date{\small Version 1.0 \quad|\quad \today}
+
+% ======================================================================
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Observational evidence for dark matter spans rotation curves, gravitational lensing, structure formation, and the cosmic microwave background. Particle searches have yielded null results; modified gravity struggles with consistency across scales. We propose a geometric alternative: dark matter as the \emph{phase-dephased component} of a fundamental rotor field defined in geometric algebra. Spacetime carries a bivector field $B(x)$ whose exponential $R(x)=\exp(\tfrac12 B)$ induces the metric and orthonormal frames. Ordinary matter corresponds to rotor orientations aligned with the electromagnetic observation plane; dark matter arises from orthogonal (dephased) components that suppress electromagnetic coupling while retaining gravitational effects through angular-gradient stresses. We derive an effective stress-energy for the dephased sector, present falsifiable predictions for rotation curves, weak lensing anisotropies, structure growth, and CMB imprints, and propose a minimal three-parameter phenomenology $(\xi_0,\sigma_B,c_R^2)$ testable with current observations.
+\end{abstract}
+
+\noindent\textbf{Keywords:} dark matter, rotor fields, geometric algebra, weak lensing, structure formation, rotation curves
+
+\vspace{1em}
+
+% ======================================================================
+\section{Introduction}\label{sec:intro}
+
+\subsection{The Dark Matter Problem}
+
+Galaxy rotation curves remain flat far beyond the luminous extent of stellar disks. Gravitational lensing by galaxy clusters reveals mass distributions inconsistent with visible matter. Large-scale structure formation requires non-baryonic cold dark matter seeding gravitational collapse. The cosmic microwave background acoustic peaks demand $\Omega_{\rm DM} h^2 \approx 0.12$. These observations establish that approximately 85\% of the matter content of the universe is non-luminous and collisionless.
+
+Particle physics offers candidates---weakly interacting massive particles (WIMPs), axions, sterile neutrinos---but direct detection experiments have found no signal despite decades of searches. Modified Newtonian dynamics (MOND) explains rotation curves but fails for cluster dynamics, lensing, and cosmology. The Bullet Cluster observation, where lensing mass peaks are spatially offset from baryonic gas peaks, provides strong evidence for collisionless dark matter distinct from baryons.
+
+\subsection{Geometric Algebra and the Rotor Field Framework}
+
+Clifford's geometric algebra unifies vectors, bivectors, and higher-grade multivectors within a single algebraic structure. The geometric product encodes both inner and outer products. Rotations are represented by \emph{rotors}---exponentials of bivectors. Hestenes reformulated the Dirac equation in geometric algebra, revealing the spinor as a geometric rotor rather than an abstract Hilbert-space entity. Lasenby, Doran, and Gull showed that general relativity can be formulated as a gauge theory of the Lorentz rotor group, with the metric emerging from tetrad fields.
+
+This suggests that spacetime geometry itself may be rotor-induced. If the fundamental field is a bivector $B(x)$ in the Clifford algebra $\Cl(1,3)$, the associated rotor $R=\exp(\tfrac12 B)$ defines local orthonormal frames and thus the metric. Different bivector \emph{orientations} in $\bivec(1,3)$ may encode distinct interaction channels.
+
+\subsection{The Phase-Dephasing Hypothesis}
+
+We propose that dark matter is not a new particle species but a \emph{geometric phase} of the rotor field:
+
+\begin{center}
+\textit{Spacetime admits a fundamental bivector field $B(x)$, \\
+and matter is characterized by rotor orientation relative to observational planes. \\
+Luminous matter: $R_\parallel \sim \exp(\tfrac12 B_\parallel)$ aligned with EM coupling. \\
+Dark matter: $R_\perp \sim \exp(\tfrac12 B_\perp)$ orthogonal (dephased) orientations.}
+\end{center}
+
+Electromagnetic interactions couple to bivectors aligned with photon polarization planes. Matter whose rotor is predominantly $R_\parallel$ scatters and emits light. Matter whose rotor is predominantly $R_\perp$ (orthogonal orientation) remains electromagnetically silent but gravitates through its gradient energy $\alpha \avg{(\nabla B_\perp)^2}$.
+
+From this hypothesis, we shall demonstrate:
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+  \item \textbf{Effective stress-energy:} The dephased sector behaves as a fluid with small sound speed $c_R^2\propto\sigma_B^2$, where $\sigma_B$ is the bivector orientation dispersion.
+  \item \textbf{Rotation curves:} Vortex-like rotor textures around disk galaxies source flat asymptotic tails $v_c(r)\to\text{const}$ when $\xi\alpha\propto r^{-2}$.
+  \item \textbf{Lensing quadrupoles:} Anisotropic stress produces $\epsilon_2\propto\sigma_B^2$ quadrupolar modulation aligned with disk orientation axes.
+  \item \textbf{Structure suppression:} Rotor sound speed $c_R^2$ suppresses small-scale power at $k\gtrsim H_0/c_R$ without WDM freestreaming artifacts.
+  \item \textbf{CMB anisotropy:} Rotor stress modifies ISW effect, producing cross-correlation with galaxy spin-axis fields.
+\end{enumerate}
+
+The remainder of this paper is organized as follows. Section~\ref{sec:prelim} reviews geometric algebra preliminaries. Section~\ref{sec:rotor-dm} presents the rotor dark matter hypothesis with kinematic and dynamical postulates. Section~\ref{sec:action} derives the effective action and stress-energy. Section~\ref{sec:pheno} develops phenomenological predictions. Section~\ref{sec:pipeline} proposes a data pipeline for parameter inference. Section~\ref{sec:discriminants} discusses consistency checks and degeneracies. Section~\ref{sec:discussion} addresses open questions. Section~\ref{sec:conclusion} offers concluding remarks.
+
+\vspace{1em}
+
+% ======================================================================
+\section{Geometric Algebra Preliminaries}\label{sec:prelim}
+
+\subsection{Clifford Algebra and the Geometric Product}
+
+Let $\{\gamma_a\}$, $a=0,1,2,3$, be an orthonormal basis of the spacetime Clifford algebra $\Cl(1,3)$ satisfying
+\begin{equation}
+\gamma_a\gamma_b+\gamma_b\gamma_a=2\eta_{ab},\qquad \eta=\diag(+1,-1,-1,-1).
+\end{equation}
+
+The geometric product decomposes as
+\begin{equation}
+\gamma_a\gamma_b = \gamma_a\cdot\gamma_b + \gamma_a\wedge\gamma_b = \eta_{ab} + B_{ab},
+\end{equation}
+where $B_{ab}=\tfrac12(\gamma_a\gamma_b-\gamma_b\gamma_a)$ is a bivector. The space $\bivec(1,3)$ is six-dimensional, spanned by $\{\gamma_a\wedge\gamma_b\}_{a<b}$.
+
+A general bivector $B=\tfrac12 B^{ab}\gamma_a\wedge\gamma_b$ generates rotations in the planes it spans. The exponential map yields rotors.
+
+\subsection{Rotors and Frame Fields}
+
+\begin{definition}[Rotor]
+A \emph{rotor} $R\in\Spin(1,3)$ satisfies $R\rev{R}=1$ (where $\rev{R}$ denotes reversion) and admits
+\begin{equation}
+R=\exp\!\left(\tfrac12 B\right), \qquad B\in\bivec(1,3).
+\end{equation}
+\end{definition}
+
+The rotor field $R(x)$ defines a position-dependent orthonormal tetrad:
+\begin{equation}
+e_a(x) \equiv R(x)\,\gamma_a\,\rev{R}(x), \qquad e_a\cdot e_b=\eta_{ab},
+\end{equation}
+with components $e_a=e_a^{\ \mu}\partial_\mu$. The induced spacetime metric is
+\begin{equation}
+g_{\mu\nu}(x)=e_\mu^{\ a}e_\nu^{\ b}\eta_{ab}.
+\label{eq:metric-tetrad}
+\end{equation}
+
+Thus the metric emerges from the rotor field. A spin connection $\Omega_\mu$ (bivector-valued one-form) defines the gauge-covariant derivative $\nabla_\mu R=\partial_\mu R+\tfrac12 \Omega_\mu R$. The curvature bivector is
+\begin{equation}
+\Curv=\partial_\mu\Omega_\nu-\partial_\nu\Omega_\mu+\tfrac12[\Omega_\mu,\Omega_\nu].
+\end{equation}
+
+\begin{remark}
+General relativity is reformulated as a gauge theory of $\Spin(1,3)$, analogous to Yang--Mills gauge theories. The metric~\eqref{eq:metric-tetrad} is not fundamental but derived from rotor dynamics.
+\end{remark}
+
+\vspace{1em}
+
+% ======================================================================
+\section{The Rotor Dark Matter Hypothesis}\label{sec:rotor-dm}
+
+\subsection{Kinematic Postulates}
+
+Let spacetime admit a rotor field $R(x)$ with bivector generator $B(x)$. We decompose:
+\begin{equation}
+R(x)=\exp\!\left(\tfrac12 B_\parallel(x)\right)\exp\!\left(\tfrac12 B_\perp(x)\right),
+\label{eq:rotor-decomp}
+\end{equation}
+where $B_\parallel$ projects onto the \emph{electromagnetic observation plane} and $B_\perp$ onto its orthogonal complement in $\bivec(1,3)$.
+
+\begin{definition}[Dephasing fraction]
+The \emph{dephasing fraction} is
+\begin{equation}
+\xi(x) \equiv \frac{\avg{ \norm{B_\perp}^2 }}{\avg{ \norm{B_\parallel}^2 }+\avg{ \norm{B_\perp}^2 }},
+\qquad 0\le\xi\le 1,
+\label{eq:xi-def}
+\end{equation}
+where $\avg{\cdot}$ denotes coarse-graining over a cell of size $L\gg \ell_{\rm Planck}$.
+\end{definition}
+
+\begin{definition}[Bivector orientation dispersion]
+The \emph{orientation dispersion} is
+\begin{equation}
+\sigma_B^2 \equiv \Var(\hat B) = \avg{\hat B^2} - \avg{\hat B}^2,
+\end{equation}
+where $\hat B = B/\norm{B}$ is the unit bivector orientation.
+\end{definition}
+
+\textbf{Physical interpretation:} Electromagnetic photons couple to matter whose rotor orientation aligns with the photon's bivector plane. Matter with $R_\parallel$ dominant scatters light and appears luminous. Matter with $R_\perp$ dominant (orthogonal orientation) is electromagnetically silent---this is dark matter.
+
+\subsection{Dynamical Postulates}
+
+We postulate a rotor action with gravitational and kinetic terms:
+\begin{align}
+S &= \frac{1}{2\kappa}\int \grade{e\wedge e\wedge F}{0}\,\dd^4x
+    + \int \Lag_R\,\sqrt{-g}\,\dd^4x,
+\label{eq:action}\\
+\Lag_R &= \frac{\alpha}{2}\,\grade{\nabla_\mu R\,\rev{\nabla^\mu R}}{0}-V(R;\Phi),
+\label{eq:lagrangian-rotor}
+\end{align}
+where $\kappa=8\pi G/c^4$, $\alpha>0$ is the rotor coupling constant with dimensions (energy)$^2$ or equivalently (mass)$^2$ in natural units, and $V$ is a potential coupling to other fields $\Phi$.
+
+Variation yields Einstein's equations $G_{\mu\nu}=\kappa T_{\mu\nu}$ with stress-energy
+\begin{equation}
+T^{(R)}_{\mu\nu}=\alpha\,\grade{\nabla_\mu R\,\rev{\nabla_\nu R}}{0}-g_{\mu\nu}\Lag_R.
+\label{eq:stress-energy}
+\end{equation}
+
+\begin{remark}
+The stress-energy~\eqref{eq:stress-energy} is \emph{anisotropic} when $B$ has preferred orientations. This anisotropy sources gravitational effects distinct from isotropic dark matter fluids.
+\end{remark}
+
+\vspace{1em}
+
+% ======================================================================
+\section{Effective Action and Phase Decomposition}\label{sec:action}
+
+\subsection{Decomposition into Coherent and Dephased Sectors}
+
+Using the decomposition~\eqref{eq:rotor-decomp}, the Lagrangian~\eqref{eq:lagrangian-rotor} expands to quadratic order in gradients:
+\begin{equation}
+\Lag_R \approx \frac{\alpha}{8}\left[\Tr\big((\nabla B_\parallel)^2\big)+\Tr\big((\nabla B_\perp)^2\big)\right]-V_\parallel - V_\perp.
+\end{equation}
+
+Coarse-graining over cells of size $L$ yields effective densities:
+\begin{align}
+\rho_{\rm lum} &\simeq \frac{\alpha}{8L^2}\,\avg{\Tr((\nabla B_\parallel)^2)} + V_\parallel,
+\label{eq:rho-lum}\\
+\rho_{\rm DM} &\simeq \frac{\alpha}{8L^2}\,\avg{\Tr((\nabla B_\perp)^2)} + V_\perp.
+\label{eq:rho-dm}
+\end{align}
+
+The dephasing fraction~\eqref{eq:xi-def} controls the ratio when the gradient energy dominates:
+\begin{equation}
+\frac{\rho_{\rm DM}}{\rho_{\rm tot}} \approx \frac{\avg{\Tr((\nabla B_\perp)^2)}}{\avg{\Tr((\nabla B_\parallel)^2)} + \avg{\Tr((\nabla B_\perp)^2)}} \equiv \xi',
+\end{equation}
+where $\xi' = \xi$ only if the bivector orientations are statistically independent with equal variance: $\avg{|\nabla B_\perp|^2} = \lambda \avg{|B_\perp|^2}$ and $\avg{|\nabla B_\parallel|^2} = \lambda \avg{|B_\parallel|^2}$ for some constant $\lambda$. In general, $\xi'$ depends on the spatial correlation structure of the bivector field.
+
+\subsection{Barotropic Closure and Rotor Sound Speed}
+
+For large-scale dynamics, we close with an effective equation of state:
+\begin{equation}
+P_{\rm DM}=c_R^2\,\rho_{\rm DM},\qquad c_R^2\propto \sigma_B^2.
+\label{eq:eos-dm}
+\end{equation}
+
+The rotor sound speed $c_R$ arises from angular fluctuations: larger orientation dispersion $\sigma_B$ yields larger effective pressure. This distinguishes rotor dark matter from cold dark matter (CDM, $c_R^2=0$) and warm dark matter (WDM, large thermal velocity dispersion).
+
+\begin{proposition}[Fluid limit]
+In the limit $L\gg \lambda_{\rm rotor}$ (where $\lambda_{\rm rotor}$ is the rotor coherence length), the dephased sector behaves as a perfect fluid with equation of state~\eqref{eq:eos-dm} and stress-energy
+\begin{equation}
+T^{(\rm DM)}_{\mu\nu}=(\rho_{\rm DM}+P_{\rm DM})u_\mu u_\nu + P_{\rm DM} g_{\mu\nu} + \Pi_{\mu\nu},
+\label{eq:T-fluid}
+\end{equation}
+where $\Pi_{\mu\nu}\propto \sigma_B^2$ is an anisotropic stress tensor encoding bivector orientation correlations.
+\end{proposition}
+
+\vspace{1em}
+
+% ======================================================================
+\section{Phenomenology and Predictions}\label{sec:pheno}
+
+\subsection{Galaxy Rotation Curves}
+
+In a stationary axisymmetric disk galaxy, the rotor field exhibits a vortex texture with bivector orientations winding around the disk's angular momentum axis. The angular gradient energy sources a contribution to the circular velocity:
+\begin{equation}
+v_c^2(r)=\frac{G\,M_b(<r)}{r}\;+\; v_R^2(r),
+\qquad
+v_R^2(r)\;\simeq\; \alpha_R \int_0^r \frac{\xi(r')\,\alpha(r')}{r'}\,\dd r',
+\label{eq:v-circ}
+\end{equation}
+where $M_b(<r)$ is the enclosed baryonic mass and $\alpha_R$ is a geometric factor from the orientation kernel.
+
+\textbf{Flat asymptotic tail:} When $\xi\alpha\propto r^{-2}$ at large $r$, equation~\eqref{eq:v-circ} yields $v_c(r)\to\text{const}$, matching observed flat rotation curves without invoking spherical CDM halos.
+
+\textbf{Testable prediction:} The rotor-gradient term predicts correlations between rotation curve shape and (i) disk thickness, (ii) stellar angular momentum, (iii) orientation relative to large-scale structure (filaments, voids). Stacked analyses over SPARC samples should reveal systematic dependencies.
+
+\subsection{Weak Lensing Anisotropy}
+
+The anisotropic stress $\Pi_{\mu\nu}$ in~\eqref{eq:T-fluid} modifies the lensing convergence:
+\begin{equation}
+\kappa(\theta,\varphi)=\kappa_0(\theta)\left[1+\epsilon_2(\theta)\cos 2(\varphi-\varphi_B)\right],\quad
+\epsilon_2\simeq \beta_R\sigma_B^2,
+\label{eq:kappa-quad}
+\end{equation}
+where $\varphi_B$ is the orientation of the mean bivector field and $\beta_R$ is a dimensionless coefficient derived in Appendix~\ref{app:lensing}.
+
+\textbf{Falsifiable signature:} The principal axes of weak lensing mass distributions should correlate with photometric disk position angles. This is a \emph{discriminant} from baryonic feedback, which cannot produce alignment of lensing quadrupoles with external orientation fields.
+
+\textbf{Null test:} For face-on disks, $\epsilon_2\to 0$ by projection geometry. Stacked weak lensing over inclination bins provides sharp systematics control.
+
+\subsection{Structure Growth and Small-Scale Suppression}
+
+The rotor sound speed~\eqref{eq:eos-dm} modifies linear perturbation growth. On subhorizon scales:
+\begin{equation}
+\ddot\delta + 2H\dot\delta - 4\pi G \rho_{\rm tot}\,\delta + c_R^2 k^2 \delta = 0.
+\label{eq:pert-growth}
+\end{equation}
+
+Power is suppressed at $k\gtrsim k_R\equiv H_0/c_R$. For $c_R^2\sim 10^{-4}$, this addresses cusp--core and too-big-to-fail problems without warm dark matter's velocity freestreaming (already constrained by Lyman-$\alpha$ forest).
+
+\textbf{Discriminant:} Rotor pressure suppresses \emph{formation} of small-scale halos but does not erase pre-existing structure. WDM erases substructure via phase-space cutoff. Comparing halo mass functions and satellite abundances distinguishes the scenarios.
+
+\subsection{CMB Anisotropic Stress and ISW Effect}
+
+The anisotropic stress $\Pi_{\mu\nu}\propto\sigma_B^2 \rho_{\rm DM}$ modifies the late-time integrated Sachs--Wolfe (ISW) effect. This produces a phase shift in low-$\ell$ TE and EE power spectra, correlated with galaxy spin-axis fields (proxies for large-scale $\hat B$ orientation).
+
+\textbf{Forecast:} Cross-correlating Planck CMB with SDSS spiral morphology catalogs should reveal $\mathcal{O}(10^{-3})$ signal if rotor anisotropic stress is present. Null result constrains $\sigma_B^2\lesssim 10^{-3}$.
+
+\subsection{Merging Clusters}
+
+If $R_\perp$ is weakly self-interacting (pure gradient energy), the dephased sector exhibits collisionless dynamics. The Bullet Cluster observation---spatial offset between lensing mass and X-ray gas---is naturally explained: the dephased rotor field passes through collisions unimpeded, while baryons suffer hydrodynamic drag.
+
+Bounds on self-interaction cross-section translate to $c_R^2\lesssim \mathcal{O}(10^{-4})$ on cluster scales.
+
+\vspace{1em}
+
+% ======================================================================
+\section{Minimal Parametrization and Data Pipeline}\label{sec:pipeline}
+
+\subsection{Three-Parameter Baseline}
+
+We propose:
+\begin{equation}
+\Theta_{\rm DM}=\{\xi_0,\ \sigma_B,\ c_R^2\},
+\label{eq:params}
+\end{equation}
+where:
+\begin{itemize}[leftmargin=*]
+  \item $\xi_0$: dephasing fraction controlling $\rho_{\rm DM}/\rho_{\rm tot}$;
+  \item $\sigma_B$: bivector orientation dispersion sourcing lensing quadrupoles and rotor sound speed;
+  \item $c_R^2$: rotor sound speed squared suppressing small-scale structure.
+\end{itemize}
+
+Optional extensions: radial/scale dependence $\xi(r)$, $\sigma_B(k)$, or baryon-rotor coupling $\lambda_{bR}$.
+
+\subsection{Observational Tests}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Rotation curves:} Fit $v_c(r)$ using~\eqref{eq:v-circ} on SPARC samples. Test scaling with disk thickness, stellar angular momentum, and environment (filament proximity, void membership).
+  \item \textbf{Weak lensing:} Stack shear maps around spiral galaxies; measure $\epsilon_2(\theta)$ and test correlation with photometric position angles.
+  \item \textbf{LSS / RSD:} Modify Boltzmann codes (CAMB/CLASS) by adding $c_R^2 k^2$ term in~\eqref{eq:pert-growth}. Constrain via $f\sigma_8(z)$ and $P(k,z)$.
+  \item \textbf{CMB:} Compute ISW cross-correlation with galaxy spin-axis catalogs. Search for low-$\ell$ phase shift.
+  \item \textbf{Clusters:} Joint X-ray + WL modeling. Infer $c_R^2$ from merging-cluster offsets.
+\end{enumerate}
+
+\subsection{Inference Algorithm}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\KwIn{Data $\mathcal{D}=\{\text{RC},\text{WL},\text{LSS},\text{CMB},\text{CL}\}$}
+\KwOut{Posterior $p(\Theta_{\rm DM}\mid\mathcal{D})$}
+Initialize prior $\pi(\Theta_{\rm DM})$\;
+\For{MCMC step $t=1..T$}{
+  Propose $\Theta^{(t)}\sim q(\cdot\mid \Theta^{(t-1)})$\;
+  Compute likelihoods: $\mathcal{L}_{\rm RC}(\Theta^{(t)})$, $\mathcal{L}_{\rm WL}(\Theta^{(t)})$, $\mathcal{L}_{\rm LSS}(\Theta^{(t)})$, $\mathcal{L}_{\rm CMB}(\Theta^{(t)})$, $\mathcal{L}_{\rm CL}(\Theta^{(t)})$\;
+  Compute posterior: $p(\Theta^{(t)}\mid\mathcal{D})\propto \pi(\Theta^{(t)})\prod_i \mathcal{L}_i(\Theta^{(t)})$\;
+  Accept/reject by Metropolis--Hastings rule\;
+}
+\caption{Global inference for rotor dephasing parameters.}
+\end{algorithm}
+
+\vspace{1em}
+
+% ======================================================================
+\section{Consistency, Limits, and Discriminants}\label{sec:discriminants}
+
+\subsection{Cold Limit and CDM Recovery}
+
+In the limit $c_R^2\to 0$ and $\sigma_B\to 0$, the dephased sector reduces to pressureless dust with isotropic stress, recovering $\Lambda$CDM dynamics. Nonzero $\sigma_B$ introduces lensing quadrupoles~\eqref{eq:kappa-quad} without violating background expansion or BBN constraints.
+
+\subsection{Degeneracy with Baryonic Feedback}
+
+Supernova and AGN feedback flatten inner density profiles, potentially mimicking rotor pressure. However, feedback cannot produce \emph{alignment} of weak lensing quadrupoles with disk orientation axes across large samples. This alignment is the key discriminant.
+
+\subsection{Null Tests}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Inclination dependence:} For face-on disks, $\epsilon_2\to 0$ by projection. Stacked lensing over inclination bins tests this.
+  \item \textbf{Environment:} Rotor vortex strength should correlate with large-scale tidal fields. Cross-correlating rotation residuals with cosmic web morphology tests environmental coupling.
+  \item \textbf{Morphology:} Ellipticals (no disk) should exhibit weaker rotor signals than spirals. Comparing Sa vs.\ Sc vs.\ E galaxies constrains the rotor--angular-momentum coupling.
+\end{itemize}
+
+\vspace{1em}
+
+% ======================================================================
+\section{Discussion}\label{sec:discussion}
+
+\subsection{Geometric Unity and the Dark Sector}
+
+The rotor-field hypothesis reinterprets dark matter not as new particles but as hidden geometric structure: bivector orientations orthogonal to our observational plane. Luminous and dark matter are two faces of the same field, distinguished by phase coherence relative to electromagnetic coupling.
+
+This aligns with Einstein's vision that nature's diversity conceals deeper geometric unity. Where Einstein unified gravity and electromagnetism through metric curvature, the rotor approach posits \emph{orientation in bivector space} as the missing degree of freedom. The metric emerges from the rotor via~\eqref{eq:metric-tetrad}; electromagnetic interactions couple to aligned bivectors; dark matter corresponds to misaligned orientations.
+
+\subsection{Open Questions}
+
+\subsubsection{Microphysical Origin of $\alpha$}
+
+What determines the rotor coupling scale $\alpha$? By analogy to the QCD vacuum energy density $\rho_{\rm QCD}\sim (200\,\text{MeV})^4$, might $\alpha$ arise from a bivector condensate? Does the rotor field couple to the Higgs, with $V(R;\Phi)$ encoding electroweak symmetry breaking?
+
+\subsubsection{Cosmological Boundary Conditions}
+
+What initial conditions should $B(x,t_0)$ satisfy at the Big Bang? Highly uniform primordial $B$ ($\sigma_B\ll 1$) explains cosmic homogeneity. Subsequent instabilities (rotor curvature growth $\mathcal{K}\propto\nabla\wedge B$) seed structure. Dark energy may correspond to rotor vacuum energy $\avg{B^2}$.
+
+\subsubsection{Nonlinear Structure}
+
+We linearized rotor dynamics for large-scale predictions. Fully nonlinear rotor field equations (analogous to Einstein's equations) govern halo formation. Do rotor vortices form stable soliton-like structures? Can the halo mass function emerge without fine-tuning?
+
+\subsubsection{Experimental Challenges}
+
+Lensing quadrupoles $\epsilon_2\sim 10^{-3}$--$10^{-2}$ require stacking $\sim 10^4$ galaxies for $3\sigma$ detection. Rotation curve correlations demand high-resolution HI observations. CMB-LSS cross-correlations need precise spin-axis catalogs. These are challenging but achievable with LSST, JWST, Euclid, and Simons Observatory.
+
+The decisive advantage of the rotor hypothesis: it predicts \emph{correlated signals} across independent observables (rotation curves, lensing, structure, CMB). Any single null result constrains or falsifies the model.
+
+\subsection{Philosophical Reflections}
+
+If dark matter is a geometric phase of the rotor field, orientation in bivector space becomes as real as position in physical space. Fields---electromagnetic, gravitational, rotor---are fundamental entities, not emergent from particles.
+
+Alternatively, instrumentalists may view the rotor field as a convenient device. What matters is empirical adequacy: does it predict observations? The hypothesis's value lies in unifying power and falsifiability, independent of ontological status.
+
+Structural realists suggest the rotor field encodes the \emph{pattern of relationships} among observables rather than an underlying substance. Bivectors $B$ represent the web of geometric relations constituting spacetime and matter.
+
+\vspace{1em}
+
+% ======================================================================
+\section{Conclusion}\label{sec:conclusion}
+
+We have formulated a rotor-field description of dark matter in geometric algebra. The main results are:
+
+\begin{enumerate}[leftmargin=*]
+  \item The rotor field $R(x)=\exp(\tfrac12 B(x))$ induces spacetime metric and frames. Bivector orientation determines interaction channels: alignment with EM planes yields luminous matter; orthogonality yields dark matter.
+  \item Effective stress-energy for the dephased sector $\rho_{\rm DM}\sim\alpha\avg{(\nabla B_\perp)^2}$ is anisotropic, producing lensing quadrupoles $\epsilon_2\propto\sigma_B^2$ aligned with large-scale rotor orientation.
+  \item Flat rotation curves arise from vortex-like rotor textures: $v_R^2(r)\sim \int \xi\alpha/r\,\dd r$.
+  \item Rotor sound speed $c_R^2\propto\sigma_B^2$ suppresses structure at $k\gtrsim H_0/c_R$ without WDM freestreaming.
+  \item Minimal parameter set $\{\xi_0,\sigma_B,c_R^2\}$ enables joint inference from rotation curves, weak lensing, LSS, CMB, and clusters.
+\end{enumerate}
+
+The hypothesis is falsifiable. Null results in lensing quadrupole searches, absence of rotation--environment correlations, or failure of CMB-spin-axis cross-correlations would rule out or severely constrain the rotor-dephasing mechanism.
+
+Whether or not this description proves correct, the exercise demonstrates the value of geometric alternatives to the particle paradigm. Clifford's geometric algebra may encode not merely a convenient notation but the hidden structure of the dark sector.
+
+The immediate tests are within reach. Stacked weak lensing, rotation curve scaling relations, and CMB-LSS cross-correlations can be conducted with existing data. The decisive observations await.
+
+\medskip
+\noindent\textit{Should future observations confirm the predicted quadrupoles and correlations, we will have found not a new particle but a new facet of spacetime geometry---a hidden dimension in the bivector space of Clifford algebra, where dark and luminous matter are distinguished only by the angle of their geometric alignment.}
+
+\vspace{1em}
+
+% ======================================================================
+\section*{Acknowledgements}
+
+The author thanks the geometric algebra community for foundational insights, particularly David Hestenes, Chris Doran, and Anthony Lasenby. This work was inspired by observational constraints from the SPARC collaboration and LIGO/Virgo gravitational-wave detections. The author acknowledges open data policies enabling cosmological cross-checks. Any errors are the author's own.
+
+\vspace{1em}
+
+% ======================================================================
+\appendix
+
+\section{From Rotor Kinetics to Fluid Form}\label{app:fluid}
+
+Decompose $R=\exp(\tfrac12 B)$ with $B=B_\parallel+B_\perp$. To quadratic order in gradients:
+\begin{equation}
+\Lag_R \approx \frac{\alpha}{8}\left[\Tr\big((\nabla B_\parallel)^2\big)+\Tr\big((\nabla B_\perp)^2\big)\right]-V_\parallel - V_\perp.
+\end{equation}
+
+Coarse-graining over cells of size $L$ with orientation statistics yields:
+\begin{equation}
+\rho_{\rm DM} \simeq \frac{\alpha}{8L^2}\,\avg{\Tr(B_\perp^2)} + V_\perp,
+\qquad
+P_{\rm DM}\simeq c_R^2\,\rho_{\rm DM},\quad c_R^2\propto \sigma_B^2.
+\end{equation}
+
+\section{Lensing Quadrupole from Anisotropic Stress}\label{app:lensing}
+
+In Newtonian gauge, $\nabla^2(\Phi+\Psi)=8\pi G a^2 \delta\rho + \Pi$. For rotor dark matter with anisotropic stress:
+\begin{equation}
+\Pi(\bm{k})\approx -\beta_R\,(\hat k\cdot \hat B)^2\,\rho_{\rm DM}(\bm{k}),
+\end{equation}
+where $\beta_R$ is a dimensionless coefficient from the orientation tensor. This yields an E-mode quadrupole:
+\begin{equation}
+\epsilon_2\simeq\beta_R \sigma_B^2.
+\end{equation}
+
+\section{Rotation-Curve Kernel}\label{app:rc}
+
+For a thin exponential disk with scale length $R_d$, the rotor-induced term is:
+\begin{equation}
+v_R^2(r)=\alpha_R \int_0^\infty \dd r'\,K(r,r')\,[\xi(r')\alpha(r')],
+\end{equation}
+where $K(r,r')$ is a geometry kernel peaked near $r'\!\sim\!r$. Flat tails require $\xi\alpha \propto r^{-2}$ asymptotically.
+
+% --------------------- Bibliography -----------------
+\begin{thebibliography}{9}
+
+\bibitem{Clifford1878}
+W.~K.~Clifford.
+\newblock Applications of Grassmann's extensive algebra.
+\newblock \emph{American Journal of Mathematics}, 1(4):350--358, 1878.
+
+\bibitem{Hestenes1966}
+D.~Hestenes.
+\newblock \emph{Space-Time Algebra}.
+\newblock Gordon and Breach, New York, 1966.
+
+\bibitem{DoranLasenby2003}
+C.~Doran and A.~Lasenby.
+\newblock \emph{Geometric Algebra for Physicists}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{Lasenby1998}
+A.~Lasenby, C.~Doran, and S.~Gull.
+\newblock Gravity, gauge theories and geometric algebra.
+\newblock \emph{Phil. Trans. R. Soc. A}, 356(1737):487--582, 1998.
+
+\bibitem{Peebles}
+P.~J.~E.~Peebles.
+\newblock \emph{Principles of Physical Cosmology}.
+\newblock Princeton Univ. Press, 1993.
+
+\bibitem{BartelmannSchneider}
+M.~Bartelmann and P.~Schneider.
+\newblock Weak gravitational lensing.
+\newblock \emph{Phys. Rep.}, 340:291--472, 2001.
+
+\end{thebibliography}
+
+\end{document}

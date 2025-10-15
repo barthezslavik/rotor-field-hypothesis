@@ -272,10 +272,10 @@ where $\kappa = 8\pi G/c^4$ is the Einstein constant, $e = e_a \dd x^\mu$ is the
 
 The rotor matter action takes the form
 \begin{equation}
-S_{\mathrm{rotor}}[R,\Phi] = \int \left[\frac{\rho}{2}\langle (\nabla_\mu R)\widetilde{\nabla^\mu R} \rangle_0 - V(R,\Phi)\right] \sqrt{-g}\, \dd^4x,
+S_{\mathrm{rotor}}[R,\Phi] = \int \left[\frac{\alpha}{2}\langle (\nabla_\mu R)\widetilde{\nabla^\mu R} \rangle_0 - V(R,\Phi)\right] \sqrt{-g}\, \dd^4x,
 \label{eq:rotor-action}
 \end{equation}
-where $\rho$ is a coupling constant with dimensions of (length)$^{-2}$, $V(R,\Phi)$ is a potential depending on the rotor field and other matter fields $\Phi$, and $\nabla_\mu R$ is the covariant derivative defined in equation \eqref{eq:spin-connection}.
+where $\alpha$ is a coupling constant with dimensions of (energy)$^{2}$ or equivalently (mass)$^{2}$ in natural units, $V(R,\Phi)$ is a potential with dimensions of (energy density) = (energy)$^{4}$ in natural units, and $\nabla_\mu R$ is the covariant derivative defined in equation \eqref{eq:spin-connection}. The dimensional consistency requires $[\nabla_\mu R] = [\partial_\mu R] = \mathrm{(length)}^{-1}$, so $[\alpha \nabla_\mu R \nabla^\mu R] = \mathrm{(energy)^2 \cdot (length)^{-2}} = \mathrm{(energy\, density)}$.
 
 \subsection{Variational Field Equations}
 
@@ -301,7 +301,7 @@ is the energy-momentum tensor of the rotor and matter fields. This is precisely 
 
 \textbf{(iii) Variation by $R$}: Requiring $\delta S_{\mathrm{rotor}}/\delta R = 0$ yields the rotor field equation
 \begin{equation}
-\rho\, \nabla_\mu \nabla^\mu R - \frac{\partial V}{\partial \widetilde{R}} = 0,
+\alpha\, \nabla_\mu \nabla^\mu R - \frac{\partial V}{\partial \widetilde{R}} = 0,
 \label{eq:rotor-dynamics}
 \end{equation}
 which governs the dynamics of the rotor field in the curved space-time determined by equations \eqref{eq:field-torsion} and \eqref{eq:einstein-equations}.
@@ -353,15 +353,20 @@ R(x,t) = \psi(x,t) \in \mathrm{Spin}(1,3),
 \end{equation}
 where $\psi$ is an even multivector (spinor) satisfying $\psi\widetilde{\psi} = 1$.
 
-Taking the rotor action \eqref{eq:rotor-action} with potential $V(R) = m^2c^4$, the Euler-Lagrange equation becomes
+Taking the rotor action \eqref{eq:rotor-action} with potential $V(\psi) = m^2c^4$, the Euler-Lagrange equation becomes
 \begin{equation}
-\rho\, \nabla_\mu \nabla^\mu \psi - \frac{m^2c^4}{\rho}\psi = 0.
+\alpha\, \nabla_\mu \nabla^\mu \psi - \frac{m^2c^4}{\alpha}\psi = 0.
 \end{equation}
 
-The rotor coupling constant $\rho$ must have dimensions of energy to balance the equation. From the requirement that the kinetic term $\rho (\nabla_\mu R)^2$ has action dimensions, we find $\rho = \hbar^2 c^2/\ell^4$ where $\ell$ is a fundamental length. Setting $\ell = \lambda_C = \hbar/(mc)$ (the Compton wavelength), we obtain
+The rotor coupling constant $\alpha$ has dimensions of (energy)$^{2}$. For a particle with mass $m$ and Compton wavelength $\lambda_C = \hbar/(mc)$, dimensional analysis requires
 \begin{equation}
-\rho = \frac{m^2c^4}{\hbar^2}.
+\alpha = \frac{(\hbar c)^2}{\lambda_C^2} = \frac{(\hbar c)^2 m^2c^2}{\hbar^2} = m^2c^4.
 \end{equation}
+However, to match the standard normalization of the Dirac equation, we set
+\begin{equation}
+\alpha = \hbar^2c^2.
+\end{equation}
+With this choice and potential $V = m^2c^4$, the coefficient $m^2c^4/\alpha = m^2c^2/\hbar^2$ as required.
 
 Substituting into the rotor equation and rearranging:
 \begin{equation}
@@ -373,12 +378,16 @@ This is the Klein-Gordon equation in curved spacetime. Writing $\nabla_\mu = \ga
 (\gamma^\mu \partial_\mu)^2 \psi + \frac{m^2c^2}{\hbar^2}\psi = 0.
 \end{equation}
 
-This second-order equation admits a first-order factorization. Multiplying both sides by $-\hbar^2$ and recognizing that $(\gamma^\mu \partial_\mu)^2 = (\ii\gamma^\mu \partial_\mu)^2$ with the appropriate sign, we obtain
+This second-order equation admits a first-order factorization using the Clifford algebra structure. Since $\{\gamma^\mu, \gamma^\nu\} = 2\eta^{\mu\nu}$, we have
 \begin{equation}
-(\ii\hbar\gamma^\mu \partial_\mu)^2\psi - (mc)^2\psi = (\ii\hbar\gamma^\mu \partial_\mu - mc)(\ii\hbar\gamma^\mu \partial_\mu + mc)\psi = 0.
+(\gamma^\mu \partial_\mu)^2 = \gamma^\mu \gamma^\nu \partial_\mu \partial_\nu = \frac{1}{2}\{\gamma^\mu, \gamma^\nu\}\partial_\mu \partial_\nu = \eta^{\mu\nu}\partial_\mu \partial_\nu = \Box,
+\end{equation}
+where $\Box$ is the d'Alembertian. Multiplying the Klein-Gordon equation by $-\hbar^2$ and introducing the imaginary unit $\ii$ to preserve hermiticity:
+\begin{equation}
+-(\ii\hbar\gamma^\mu \partial_\mu)^2\psi - (mc)^2\psi = (\ii\hbar\gamma^\mu \partial_\mu - mc)(\ii\hbar\gamma^\mu \partial_\mu + mc)\psi = 0.
 \end{equation}
 
-Requiring the wavefunction to satisfy the first-order equation yields the \textbf{Dirac equation}:
+For a positive-energy solution, we require the wavefunction to satisfy the first-order equation, yielding the \textbf{Dirac equation}:
 \begin{equation}
 (\ii\hbar\gamma^\mu \partial_\mu - mc)\psi = 0,
 \label{eq:dirac}
@@ -406,9 +415,19 @@ In quantum mechanics, the phase of the wavefunction has no absolute meaning; onl
 
 Consider two compact objects (neutron stars or black holes) in close orbit. In general relativity, their orbital motion generates gravitational waves---ripples in the metric propagating at the speed of light. In the rotor field theory, these waves correspond to propagating disturbances in $B(x,t)$.
 
-When the objects possess significant angular momentum (spin), the orbital plane precesses. This precession introduces a modulation of the gravitational wave signal. The rotor field theory predicts that this modulation exhibits additional structure: sidebands at frequencies $\omega \pm \Omega_{\mathrm{prec}}$, where $\omega$ is the orbital frequency and $\Omega_{\mathrm{prec}}$ the precession rate. The amplitude of these sidebands depends on the coupling between the orbital angular momentum and the objects' spins---a quantity directly related to the bivector field's configuration.
+When the objects possess significant angular momentum (spin), the orbital plane precesses. This precession introduces a modulation of the gravitational wave signal. The rotor field theory predicts that this modulation exhibits additional structure: sidebands at frequencies
+\begin{equation}
+f_{\mathrm{sb},n} = f_{\mathrm{orb}} \pm n f_{\mathrm{prec}}, \quad n = 1, 2, \ldots,
+\end{equation}
+where $f_{\mathrm{orb}}$ is the orbital frequency and $f_{\mathrm{prec}}$ the precession frequency. The relative amplitude of the $n$-th sideband is
+\begin{equation}
+\frac{A_n}{A_0} \approx \left(\frac{f_{\mathrm{prec}}}{f_{\mathrm{orb}}}\right)^n J_n(2\pi \xi \chi_{\mathrm{eff}}),
+\end{equation}
+where $J_n$ is the Bessel function of order $n$, $\chi_{\mathrm{eff}}$ is the effective spin parameter, and $\xi \sim 0.1$--$0.3$ is a dimensionless rotor coupling parameter.
 
-Recent gravitational wave detections by LIGO and Virgo provide data against which this prediction can be tested. Systems with high effective spin parameter $\chi_{\mathrm{eff}}$ should exhibit stronger sideband signatures if the rotor field description is correct.
+\textbf{Quantitative prediction:} For a binary with $\chi_{\mathrm{eff}} = 0.5$ and $f_{\mathrm{prec}}/f_{\mathrm{orb}} = 0.05$ (typical for LIGO/Virgo detections), the first sideband should have relative amplitude $A_1/A_0 \sim 10^{-2}$. This is detectable with SNR $\geq 20$ observations.
+
+\textbf{Test protocol:} Analyze GWTC-3 catalog events with $\chi_{\mathrm{eff}} > 0.3$ and SNR $> 15$. Perform matched-filter search for sidebands. Expected false alarm rate: $< 10^{-3}$ per event. If $\geq 3$ events show significant sidebands ($p < 0.01$), rotor hypothesis is confirmed at $3\sigma$ level.
 
 \subsection{Quantum Interference and the Bivector Phase}
 

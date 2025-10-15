@@ -217,7 +217,7 @@ where the exterior derivative and wedge product are taken in the language of dif
 
 It proves convenient to introduce a right-invariant current that parametrizes the rotor's rate of change. We define the \emph{Maurer--Cartan current} as
 \begin{equation}
-\mathcal{A}_\mu \equiv 2(\nabla_\mu R)\widetilde{R}\in \mathfrak{spin}(1,3).
+\mathcal{A}_\mu \equiv 2(\partial_\mu R)\widetilde{R}\in \mathfrak{spin}(1,3).
 \label{eq:MC}
 \end{equation}
 
@@ -227,11 +227,12 @@ This quantity is a bivector-valued vector field living in the Lie algebra $\math
 \end{equation}
 which is an adjoint action leaving the trace $\Tr(\mathcal{A}_\mu \mathcal{A}^\mu)$ invariant.
 
-The definition \eqref{eq:MC} can be inverted to express the covariant derivative in terms of the current:
+The Maurer--Cartan current is related to the spin connection by the torsion-free condition. From $\nabla_\mu R = \partial_\mu R + \frac{1}{2}\Omega_\mu R$ and equation \eqref{eq:MC}, we have
 \begin{equation}
-\nabla_\mu R = \frac{1}{2}\mathcal{A}_\mu R.
+\nabla_\mu R = \frac{1}{2}\mathcal{A}_\mu R + \frac{1}{2}\Omega_\mu R = \frac{1}{2}(\mathcal{A}_\mu + \Omega_\mu)R.
 \label{eq:nabla-from-A}
 \end{equation}
+Thus the spin connection is given by $\Omega_\mu = 2(\nabla_\mu R)\widetilde{R} - \mathcal{A}_\mu = 2(\nabla_\mu R)\widetilde{R} - 2(\partial_\mu R)\widetilde{R}$.
 
 This choice proves natural because the Maurer--Cartan current satisfies a remarkably simple field strength (curvature) relation. Define the two-form
 \begin{equation}
@@ -244,15 +245,15 @@ where the commutator $[\mathcal{A}_\mu, \mathcal{A}_\nu] = \mathcal{A}_\mu \math
 
 We consider the simplest dynamical model for a rotor field propagating on a fixed (or dynamically determined) spacetime background. The rotor sigma-model has the Lagrangian density
 \begin{equation}
-\mathcal{L}_R = \frac{\rho}{8}\, g^{\mu\nu}\,\Tr(\mathcal{A}_\mu\mathcal{A}_\nu) - V(R),
+\mathcal{L}_R = \frac{\alpha}{8}\, g^{\mu\nu}\,\Tr(\mathcal{A}_\mu\mathcal{A}_\nu) - V(R),
 \label{eq:Lrot}
 \end{equation}
 where:
 
 \begin{itemize}
-  \item $\rho>0$ is a coupling constant with dimensions of energy density, setting the scale of rotor kinetic energy;
+  \item $\alpha>0$ is a coupling constant with dimensions of (energy)$^{2}$ in natural units ($\hbar = c = 1$), setting the scale of rotor kinetic energy;
   \item $\Tr$ denotes a trace (Killing-form normalization) on the Lie algebra $\mathfrak{spin}(1,3)$, defined such that $-\tfrac{1}{2}\Tr(XY)$ matches the scalar product $\ang{XY}_0$ of bivectors;
-  \item $V(R)$ is a potential depending on the rotor field, which may encode self-interaction or coupling to other matter fields.
+  \item $V(R)$ is a potential depending on the rotor field with dimensions of (energy)$^{4}$, which may encode self-interaction or coupling to other matter fields.
 \end{itemize}
 
 This Lagrangian is the geometric algebra analogue of the sigma-model for fields taking values in a Lie group. The kinetic term $\Tr(\mathcal{A}_\mu\mathcal{A}^\mu)$ measures how rapidly the rotor field is rotating as we move through spacetime. In flat space with $\Omega_\mu=0$, we have $\mathcal{A}_\mu = 2(\partial_\mu R)\widetilde{R}$, and the kinetic term becomes
