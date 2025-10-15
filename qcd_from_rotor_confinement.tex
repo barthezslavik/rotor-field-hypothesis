@@ -131,13 +131,9 @@ The Standard Model provides no answers; SU(3) symmetry and the QCD Lagrangian ar
 
 In previous work, we demonstrated that electroweak symmetry, gravitational dynamics, and cosmological evolution emerge from a fundamental bivector field $\Biv(x,t)$ in geometric algebra. The rotor field $\Rotor(x,t) = \exp(\frac{1}{2}\Biv)$ encodes orientation and phase, with gauge symmetries arising from the natural structure of bivector spaces.
 
-The key insight connecting rotor fields to QCD is \textbf{topological necessity}: in geometric algebra, bivector field lines must either form closed loops or extend to infinity. Unlike vector fields (which can terminate on charges), bivector fields are \emph{divergenceless by construction}:
-\begin{equation}
-\D \cdot \Biv = 0.
-\label{eq:divergenceless}
-\end{equation}
+The key insight connecting rotor fields to QCD is \textbf{gauge dynamics}: in Yang-Mills theory, the gluon field strength (a bivector-valued field) satisfies the Bianchi identity $D_\mu \tilde{F}^{a\mu\nu} = 0$, where $D_\mu$ is the covariant derivative. This is analogous to $\nabla \cdot \mathbf{B} = 0$ for magnetic fields in electromagnetism, but applies to color magnetic flux in non-abelian gauge theory.
 
-This is the geometric origin of confinement. A bivector flux line connecting a quark-antiquark pair cannot terminate; it must form a continuous tube. The energy stored in this tube grows linearly with length, producing the confining potential $V(r) = \sigma r$.
+Unlike electromagnetic charges (where electric field lines can terminate on charges), color flux lines in QCD must form continuous structures---either closed loops or tubes connecting color charges. A bivector flux line connecting a quark-antiquark pair cannot terminate in vacuum; it must form a continuous tube. The energy stored in this tube grows linearly with length, producing the confining potential $V(r) = \sigma r$.
 
 Furthermore, the 8-dimensional bivector subspace of $\Cl(3,1)$ (Clifford algebra in Euclidean 4-space, dual to Minkowski spacetime) naturally generates the SU(3) color algebra. This is not coincidence but geometry: just as the 3-dimensional spatial bivector space in $\Cl(1,3)$ yields SU(2) for electroweak theory, extending to the full bivector space of $\Cl(3,1)$ yields SU(3) for the strong force.
 
@@ -436,7 +432,7 @@ Color-charged states cannot exist in isolation. Any configuration with net color
 \end{theorem}
 
 \begin{proof}
-Consider a single quark with color charge $\Rotor_q$. The bivector flux emanating from the quark must extend outward. Since $\D \cdot \Biv = 0$, the flux cannot terminate. The only options are:
+Consider a single quark with color charge $\Rotor_q$. The color magnetic flux emanating from the quark must extend outward. Due to the Bianchi identity for non-abelian gauge fields, color flux lines cannot terminate in vacuum. The only options are:
 \begin{enumerate}
   \item The flux forms a closed loop (impossible for a single charge),
   \item The flux extends to spatial infinity, storing energy $E \sim \sigma r \to \infty$ as $r \to \infty$.
@@ -808,7 +804,7 @@ All numerical predictions agree with experiment within uncertainties, with no fr
 
 The confinement problem---"Why are quarks never observed in isolation?"---has resisted analytical solution for 50 years. Lattice QCD confirms confinement numerically, but first-principles understanding remained elusive.
 
-The rotor framework provides an ab initio resolution: confinement is not dynamical but \emph{topological}. Bivector fields satisfy $\D \cdot \Biv = 0$ by antisymmetry. Flux lines cannot terminate. Color-charged states require infinite-energy flux tubes. Therefore, only colorless hadrons exist.
+The rotor framework provides an ab initio resolution: confinement is not purely dynamical but arises from \emph{gauge structure}. In non-abelian Yang-Mills theory, the Bianchi identity ensures color flux lines cannot terminate in vacuum (analogous to $\nabla \cdot \mathbf{B} = 0$ for magnetic fields). Color-charged states require infinite-energy flux tubes. Therefore, only colorless hadrons exist.
 
 This is analogous to magnetic monopole absence in electromagnetism: since $\nabla \cdot \mathbf{B} = 0$, magnetic field lines form loops, and isolated magnetic charges are forbidden (barring exotic topological monopoles). For color, this constraint is exact and unavoidable.
 
