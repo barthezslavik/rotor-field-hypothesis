@@ -174,3 +174,7 @@ build/
 
 # Generated placeholder files (if any)
 placeholder-*.pdf
+
+# Novel predictions document
+novel_predictions.tex
+novel_predictions.pdf
