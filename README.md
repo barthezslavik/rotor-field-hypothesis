@@ -48,31 +48,31 @@ This repository contains a research program exploring whether general relativity
 
 ### The Rotor Field Postulate
 
-**Central Postulate**: Physical spacetime admits a bivector field B(x,t) whose exponential R(x,t) = exp(½B(x,t)) defines a rotor field R: M → Spin(1,3). Observable structures—metric geometry, matter fields, dynamics—are proposed to arise from this rotor field's kinematics and dynamics.
+**Central Postulate**: Physical spacetime admits a bivector field $B(x,t)$ whose exponential $R(x,t) = \exp(\frac{1}{2}B(x,t))$ defines a rotor field $R: M \to \text{Spin}(1,3)$. Observable structures—metric geometry, matter fields, dynamics—are proposed to arise from this rotor field's kinematics and dynamics.
 
-This is analogous to Einstein postulating metric tensor g_μν as fundamental. Here we propose the bivector field B as more primitive, with the metric emerging as g_μν = e_μ^a e_ν^b η_ab where e_a = R γ_a R̃.
+This is analogous to Einstein postulating metric tensor $g_{\mu\nu}$ as fundamental. Here we propose the bivector field $B$ as more primitive, with the metric emerging as $g_{\mu\nu} = e_\mu^a e_\nu^b \eta_{ab}$ where $e_a = R \gamma_a \tilde{R}$.
 
 ### What Can Be Derived
 
 Within this framework, the following can be obtained as mathematical consequences:
 
 **Classical Physics**
-- Einstein's field equations: G_μν = 8πG T_μν^(RF)
-- Newton's laws: F = ma, τ = dL/dt (low-amplitude limit)
-- Maxwell's equations: ∇F = J (electromagnetic bivector)
+- Einstein's field equations: $G_{\mu\nu} = 8\pi G\, T_{\mu\nu}^{(\text{RF})}$
+- Newton's laws: $\mathbf{F} = m\mathbf{a}$, $\boldsymbol{\tau} = d\mathbf{L}/dt$ (low-amplitude limit)
+- Maxwell's equations: $\nabla F = J$ (electromagnetic bivector)
 
 **Quantum Physics**
-- Dirac equation: (iℏγ^μ∂_μ - mc)ψ = 0 (single-particle rotor)
+- Dirac equation: $(i\hbar\gamma^\mu\partial_\mu - mc)\psi = 0$ (single-particle rotor)
 - Spin-½: geometric property of even subalgebra
 - Pauli equation: spin in magnetic field
 
 **Thermodynamics**
-- Second law: dS/dt ≥ 0 (rotor H-theorem from phase diffusion)
+- Second law: $dS/dt \geq 0$ (rotor H-theorem from phase diffusion)
 
 **Cosmology**
-- Inflation: slow-roll dynamics with n_s ≈ 0.965
-- Dark energy: rotor vacuum with equation of state w ≥ -1
-- Dark matter: phase-dephased bivector component B_⊥
+- Inflation: slow-roll dynamics with $n_s \approx 0.965$
+- Dark energy: rotor vacuum with equation of state $w \geq -1$
+- Dark matter: phase-dephased bivector component $B_\perp$
 
 ---
 
@@ -133,58 +133,56 @@ pdflatex dark_matter.tex
 
 #### 1. Gravitational Wave Sidebands
 **Prediction**: Precessing binary systems exhibit phase-modulation sidebands:
-```
-f_sideband = f_orbital ± n·Ω_prec,  n = 1,2,...
-A_n ∝ (Ω_prec/f_orbital)^n · f_α(χ_eff)
-```
 
-**Target**: LIGO/Virgo events with χ_eff > 0.3, SNR ≥ 15
-**Signature**: Δχ² ≥ 10 improvement over non-precessing templates
+$$f_{\text{sideband}} = f_{\text{orbital}} \pm n\cdot\Omega_{\text{prec}}, \quad n = 1,2,\ldots$$
+
+$$A_n \propto \left(\frac{\Omega_{\text{prec}}}{f_{\text{orbital}}}\right)^n \cdot f_\alpha(\chi_{\text{eff}})$$
+
+**Target**: LIGO/Virgo events with $\chi_{\text{eff}} > 0.3$, SNR ≥ 15
+**Signature**: $\Delta\chi^2 \geq 10$ improvement over non-precessing templates
 **Status**: Requires dedicated template development and GWTC analysis
 
 #### 2. CMB Parity Violation
 **Prediction**: Chiral bivectors produce TB/EB correlations:
-```
-C_ℓ^TB ∝ f_chiral · C_ℓ^TE
-```
 
-**Current limit**: |C_ℓ^TB|/C_ℓ^TE < 0.1 (Planck)
-**Future sensitivity**: ~10^(-3) (Simons Observatory, CMB-S4)
+$$C_\ell^{TB} \propto f_{\text{chiral}} \cdot C_\ell^{TE}$$
+
+**Current limit**: $|C_\ell^{TB}|/C_\ell^{TE} < 0.1$ (Planck)
+**Future sensitivity**: $\sim 10^{-3}$ (Simons Observatory, CMB-S4)
 **Status**: Would be smoking gun for rotor inflation
 
 #### 3. Dark Matter Lensing Quadrupoles
 **Prediction**: Weak lensing mass distributions show quadrupole aligned with galactic angular momentum:
-```
-ε₂ = (κ_major - κ_minor)/(κ_major + κ_minor) ~ 10^(-3) to 10^(-2)
-```
 
-**Test**: Stack ~10⁴ spiral galaxies (LSST, Euclid)
-**Null test**: Face-on disks (i < 20°) should show ε₂ → 0
+$$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\text{major}} + \kappa_{\text{minor}}} \sim 10^{-3} \text{ to } 10^{-2}$$
+
+**Test**: Stack ~$10^4$ spiral galaxies (LSST, Euclid)
+**Null test**: Face-on disks ($i < 20°$) should show $\varepsilon_2 \to 0$
 **Status**: **This is the most accessible near-term test**
 
 #### 4. Rotation Curve Correlations
-**Prediction**: Rotor vortex strength v_R² correlates with:
-- Disk thickness h/R (thicker → weaker vortex)
-- Specific angular momentum L_spin
+**Prediction**: Rotor vortex strength $v_R^2$ correlates with:
+- Disk thickness $h/R$ (thicker → weaker vortex)
+- Specific angular momentum $L_{\text{spin}}$
 - Tidal field alignment (cosmic web)
 
-**Dataset**: SPARC rotation curves (~175 galaxies currently, ~10⁵ with SKA)
-**Analysis**: Multivariate regression testing v_R² ∝ f(h/R, L_spin, τ_LSS)
+**Dataset**: SPARC rotation curves (~175 galaxies currently, ~$10^5$ with SKA)
+**Analysis**: Multivariate regression testing $v_R^2 \propto f(h/R, L_{\text{spin}}, \tau_{\text{LSS}})$
 **Status**: Can be tested with existing data
 
 ### Consistency Checks (Reproducing Known Physics)
 
 #### 5. Cosmological Parameters
 **Reproduces**:
-- Spectral index: n_s = 0.9649 ± 0.0042 (Planck 2018) ✓
-- Dark energy: w₀ = -1.03 ± 0.03 (consistent with w = -1) ✓
-- Tensor suppression: r < 0.06 (rotor: r ≲ 0.001) ✓
+- Spectral index: $n_s = 0.9649 \pm 0.0042$ (Planck 2018) ✓
+- Dark energy: $w_0 = -1.03 \pm 0.03$ (consistent with $w = -1$) ✓
+- Tensor suppression: $r < 0.06$ (rotor: $r \lesssim 0.001$) ✓
 
 #### 6. Particle Physics Scales
 **Explains (post-diction)**:
-- Top quark mass: m_t ≈ 173 GeV ≈ M_*^(EW) = v/√2 = 174 GeV
-- Top Yukawa: y_t = m_t√2/v ≈ 0.995 ≈ 1 (saturates natural scale)
-- QCD scale: M_*^(QCD) ~ 200 MeV (flux tube-bag crossover)
+- Top quark mass: $m_t \approx 173$ GeV $\approx M_*^{(\text{EW})} = v/\sqrt{2} = 174$ GeV
+- Top Yukawa: $y_t = m_t\sqrt{2}/v \approx 0.995 \approx 1$ (saturates natural scale)
+- QCD scale: $M_*^{(\text{QCD})} \sim 200$ MeV (flux tube-bag crossover)
 
 **Note**: These are not predictions but consistency checks showing the framework accommodates known values.
 
@@ -195,8 +193,8 @@ C_ℓ^TB ∝ f_chiral · C_ℓ^TE
 **This framework will be considered falsified if:**
 
 ### 1. Lensing Quadrupoles (Primary Test)
-❌ LSST stacking of 10⁴ spiral galaxies shows:
-- ε₂ < 10^(-4) at 3σ level, OR
+❌ LSST stacking of $10^4$ spiral galaxies shows:
+- $\varepsilon_2 < 10^{-4}$ at 3σ level, OR
 - No correlation between quadrupole orientation and photometric position angle
 
 **Timeline**: LSST Year 3+ (2027-2028)
@@ -205,28 +203,28 @@ C_ℓ^TB ∝ f_chiral · C_ℓ^TE
 ### 2. Gravitational Wave Sidebands
 ❌ Einstein Telescope (2030s) observes 100+ precessing binaries with SNR > 50:
 - No sidebands detected at > 3σ using matched filtering
-- Upper limits on A₁/A₀ < 10^(-3) inconsistent with rotor coupling
+- Upper limits on $A_1/A_0 < 10^{-3}$ inconsistent with rotor coupling
 
 **Timeline**: 2035+
 **Caveat**: Non-detection is ambiguous (could mean weak coupling)
 
 ### 3. CMB TB Correlations
 ❌ CMB-S4 constrains:
-- |C_ℓ^TB/C_ℓ^TE| < 10^(-4) at all multipoles ℓ = 30-3000
+- $|C_\ell^{TB}/C_\ell^{TE}| < 10^{-4}$ at all multipoles $\ell = 30$-$3000$
 
 **Timeline**: 2030-2035
 **Confidence**: Would rule out chiral rotor inflation
 
 ### 4. Dark Energy Phantom Crossing
 ❌ Future observations (Roman, Euclid) confirm at > 5σ:
-- w(z) < -1 for any redshift z
+- $w(z) < -1$ for any redshift $z$
 
 **Timeline**: 2028-2030
-**Confidence**: Would definitively falsify rotor dark energy (predicts w ≥ -1 always)
+**Confidence**: Would definitively falsify rotor dark energy (predicts $w \geq -1$ always)
 
 ### 5. Rotation Curve Null Test
 ❌ SPARC + SKA multivariate analysis shows:
-- No correlation between v_R² and disk geometry (p > 0.1)
+- No correlation between $v_R^2$ and disk geometry ($p > 0.1$)
 - MOND fits data better (Bayesian evidence ratio > 100)
 
 **Timeline**: Available now (SPARC), 2030+ (SKA)
@@ -280,39 +278,36 @@ M_*^(QCD) ~ 200 MeV            QCD confinement
 ## Mathematical Framework
 
 ### Geometric Algebra Foundations
-- **Clifford algebra** Cl(1,3) with basis {γ_μ} satisfying γ_μγ_ν + γ_νγ_μ = 2η_μν
-- **Bivectors**: B = ½B^μν γ_μ ∧ γ_ν (6-dimensional space, isomorphic to Lie algebra so(1,3))
-- **Rotors**: R = exp(½B) ∈ Spin(1,3) (double cover of Lorentz group SO⁺(1,3))
+- **Clifford algebra** $\text{Cl}(1,3)$ with basis $\{\gamma_\mu\}$ satisfying $\gamma_\mu\gamma_\nu + \gamma_\nu\gamma_\mu = 2\eta_{\mu\nu}$
+- **Bivectors**: $B = \frac{1}{2}B^{\mu\nu} \gamma_\mu \wedge \gamma_\nu$ (6-dimensional space, isomorphic to Lie algebra $\mathfrak{so}(1,3)$)
+- **Rotors**: $R = \exp(\frac{1}{2}B) \in \text{Spin}(1,3)$ (double cover of Lorentz group $\text{SO}^+(1,3)$)
 
 ### Field Equations
 
 **Tetrad construction**:
-```
-e_a(x) = R(x) γ_a R̃(x)
-```
-where R̃ denotes reversion (adjoint operation in geometric algebra).
+
+$$e_a(x) = R(x) \gamma_a \tilde{R}(x)$$
+
+where $\tilde{R}$ denotes reversion (adjoint operation in geometric algebra).
 
 **Induced metric** (emergent, not fundamental):
-```
-g_μν = e_μ^a e_ν^b η_ab
-```
+
+$$g_{\mu\nu} = e_\mu^a e_\nu^b \eta_{ab}$$
 
 **Action**:
-```
-S = ∫ [α/2 ⟨∇_μR ∇^μR̃⟩₀ + M_*²/4 ⟨Ω_μΩ^μ⟩₀ - V(R)] √(-g) d⁴x
-```
-where ⟨·⟩₀ denotes scalar part (grade-0 projection) and Ω_μ is the spin connection.
+
+$$S = \int \left[\frac{\alpha}{2} \langle\nabla_\mu R \nabla^\mu \tilde{R}\rangle_0 + \frac{M_*^2}{4} \langle\Omega_\mu\Omega^\mu\rangle_0 - V(R)\right] \sqrt{-g}\, d^4x$$
+
+where $\langle\cdot\rangle_0$ denotes scalar part (grade-0 projection) and $\Omega_\mu$ is the spin connection.
 
 **Field equations** (from variation):
-1. **Einstein equations**: G_μν = 8πG T_μν^(RF)
-2. **Rotor dynamics**: □Φ + V_{,Φ}/α = 0 (Klein-Gordon for rotor phase)
-3. **Torsion-free**: ∇[μ e_a ν] = 0 (Levi-Civita connection)
+1. **Einstein equations**: $G_{\mu\nu} = 8\pi G\, T_{\mu\nu}^{(\text{RF})}$
+2. **Rotor dynamics**: $\Box\Phi + V_{,\Phi}/\alpha = 0$ (Klein-Gordon for rotor phase)
+3. **Torsion-free**: $\nabla_{[\mu} e_{a\, \nu]} = 0$ (Levi-Civita connection)
 
 **Stress-energy tensor**:
-```
-T_μν^(RF) = (M_*²/4)[⟨Ω_μΩ_ν⟩₀ - ½g_μν⟨Ω_αΩ^α⟩₀]
-            + α∂_μΦ∂_νΦ - g_μν[α/2(∂Φ)² - V]
-```
+
+$$T_{\mu\nu}^{(\text{RF})} = \frac{M_*^2}{4}\left[\langle\Omega_\mu\Omega_\nu\rangle_0 - \frac{1}{2}g_{\mu\nu}\langle\Omega_\alpha\Omega^\alpha\rangle_0\right] + \alpha\,\partial_\mu\Phi\,\partial_\nu\Phi - g_{\mu\nu}\left[\frac{\alpha}{2}(\partial\Phi)^2 - V\right]$$
 
 ---
 
@@ -320,13 +315,13 @@ T_μν^(RF) = (M_*²/4)[⟨Ω_μΩ_ν⟩₀ - ½g_μν⟨Ω_αΩ^α⟩₀]
 
 | Regime | Limit | Recovers |
 |--------|-------|----------|
-| Weak field, slow motion | \|B\| ≪ 1, v/c ≪ 1 | Newtonian gravity: ∇²Φ = 4πGρ |
-| Single particle | m² potential | Dirac equation: (iℏγ^μ∂_μ - mc)ψ = 0 |
-| Classical spin | ℏ → 0 (effective) | Euler equations: dL/dt = τ |
-| Early universe | Homogeneous R(t) | Slow-roll inflation |
-| Late universe | Ṙ → 0, V ≈ V₀ | ΛCDM with w = -1 |
-| Dephased sector | c_R² → 0, σ_B → 0 | Cold dark matter (collisionless) |
-| Electromagnetic coupling | B aligned with EM plane | Luminous (visible) matter |
+| Weak field, slow motion | $\|B\| \ll 1$, $v/c \ll 1$ | Newtonian gravity: $\nabla^2\Phi = 4\pi G\rho$ |
+| Single particle | $m^2$ potential | Dirac equation: $(i\hbar\gamma^\mu\partial_\mu - mc)\psi = 0$ |
+| Classical spin | $\hbar \to 0$ (effective) | Euler equations: $d\mathbf{L}/dt = \boldsymbol{\tau}$ |
+| Early universe | Homogeneous $R(t)$ | Slow-roll inflation |
+| Late universe | $\dot{R} \to 0$, $V \approx V_0$ | ΛCDM with $w = -1$ |
+| Dephased sector | $c_R^2 \to 0$, $\sigma_B \to 0$ | Cold dark matter (collisionless) |
+| Electromagnetic coupling | $B$ aligned with EM plane | Luminous (visible) matter |
 
 **Key insight**: Standard physics emerges in limiting cases. Deviations occur when rotor structure becomes important (high curvature, quantum regime, cosmological scales).
 
@@ -424,25 +419,25 @@ T_μν^(RF) = (M_*²/4)[⟨Ω_μΩ_ν⟩₀ - ½g_μν⟨Ω_αΩ^α⟩₀]
 ### Observational Tensions
 
 #### 1. Dark Matter Sound Speed
-**Constraint**: Lyman-α forest requires c_R² ≲ 5×10^(-10)
+**Constraint**: Lyman-α forest requires $c_R^2 \lesssim 5\times10^{-10}$
 
-**Implication**: Bivector orientation dispersion σ_B must be extremely small: σ_B ≲ 2×10^(-5)
+**Implication**: Bivector orientation dispersion $\sigma_B$ must be extremely small: $\sigma_B \lesssim 2\times10^{-5}$
 
 **Tension**: Such small dispersion seems fine-tuned. Why is rotor field so well-aligned?
 
 **Possible resolution**: Phase transition in early universe created coherent bivector state (analogous to ferromagnetic alignment), but mechanism unclear.
 
 #### 2. Tensor Suppression
-**Prediction**: f_B ~ 10^(-12) for Planck-scale stiffness M_* ~ M_Pl
+**Prediction**: $f_B \sim 10^{-12}$ for Planck-scale stiffness $M_* \sim M_{\text{Pl}}$
 
-**Consequence**: Primordial gravitational waves essentially undetectable (r ~ 10^(-13))
+**Consequence**: Primordial gravitational waves essentially undetectable ($r \sim 10^{-13}$)
 
-**Question**: If r < 10^(-3) is confirmed by future CMB, does this validate rotor theory or is it unfalsifiable? Need to identify M_* regime that gives r ~ 10^(-3) to 10^(-2) (detectable but suppressed).
+**Question**: If $r < 10^{-3}$ is confirmed by future CMB, does this validate rotor theory or is it unfalsifiable? Need to identify $M_*$ regime that gives $r \sim 10^{-3}$ to $10^{-2}$ (detectable but suppressed).
 
 #### 3. Why This Bivector Decomposition?
-**Assumption**: Dark matter is B_⊥ (orthogonal to EM observation plane)
+**Assumption**: Dark matter is $B_\perp$ (orthogonal to EM observation plane)
 
-**Question**: Why does this decomposition occur? What physical process causes dephasing between B_∥ and B_⊥?
+**Question**: Why does this decomposition occur? What physical process causes dephasing between $B_\parallel$ and $B_\perp$?
 
 **Speculative answer**: Reheating after inflation produces bivector orientations, electromagnetic fields select measurement basis, orthogonal components appear dark. But this is not rigorous.
 
@@ -481,9 +476,9 @@ The rotor field hypothesis suggests spacetime geometry is not fundamental but **
 - Spacetime emerges from quantum entanglement (ER=EPR conjecture)
 - Fluid mechanics emerges from particle collisions (hydrodynamics)
 
-**Question**: Is the bivector field B(x,t) "real" or merely a mathematical device?
+**Question**: Is the bivector field $B(x,t)$ "real" or merely a mathematical device?
 
-**Physical realism**: Electromagnetic field F_μν, initially Maxwell's theoretical construct, is now regarded as physically real (carries energy, momentum). Perhaps bivector field is similarly fundamental.
+**Physical realism**: Electromagnetic field $F_{\mu\nu}$, initially Maxwell's theoretical construct, is now regarded as physically real (carries energy, momentum). Perhaps bivector field is similarly fundamental.
 
 **Structural realism**: What matters is not ontology but structure—the pattern of relationships among observables. Bivectors encode geometric relationships constituting spacetime.
 
