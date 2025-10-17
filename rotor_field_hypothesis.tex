@@ -71,13 +71,16 @@
 \affil[1]{Kyiv, Ukraine\\ \texttt{barthez.slavik@gmail.com}}
 \date{\small Version 1.0 \quad|\quad 10 October 2025}
 
+% ---------- Notation Note ----------
+% See MASTER_DEFINITIONS.md for unified notation conventions across all rotor theory documents
+
 % =============================================================================
 \begin{document}
 \maketitle
 
 \begin{abstract}
 \noindent
-Modern physics treats space, matter, and information as distinct entities, each governed by separate mathematical frameworks. Yet the ubiquity of rotation---from electron spin and electromagnetic polarization to planetary orbits and cosmic structure---suggests a deeper unity. We propose that all observable structures emerge from the dynamics of a universal \emph{rotor field} defined in geometric algebra. The fundamental object is a spatially distributed rotor $\Rotor(x,t)=\Exp\!\big(\Biv(x,t)\big)$ whose bivector generator $\Biv$ controls local orientation, phase, and coherent coupling. We show how classical mechanics, electromagnetism, quantum spinor dynamics, thermodynamic irreversibility, and efficient information encoding appear as effective regimes of rotor coherence, transport, and symmetry breaking. The hypothesis yields falsifiable predictions: spectral sidebands in gravitational-wave events with precession; compression gains on cyclic signals surpassing conventional codecs; and characteristic scaling laws in rotor phase evolution. We provide a reproducible program for experimental validation across physics, signal processing, and machine learning domains.
+Modern physics treats space, matter, and information as distinct entities, each governed by separate mathematical frameworks. Yet the ubiquity of rotation---from electron spin and electromagnetic polarization to planetary orbits and cosmic structure---suggests a deeper unity. We propose that all observable structures emerge from the dynamics of a universal \emph{rotor field} defined in geometric algebra. The fundamental object is a spatially distributed rotor $\Rotor(x,t)=\Exp\!\big(\Biv(x,t)\big)$ whose bivector generator $\Biv$ controls local orientation, phase, and coherent coupling. We show how classical mechanics, electromagnetism, quantum spinor dynamics, thermodynamic irreversibility, efficient information encoding, and \emph{dark matter} (as phase-dephased bivector components) appear as effective regimes of rotor coherence, transport, and symmetry breaking. The hypothesis yields falsifiable predictions: spectral sidebands in gravitational-wave events with precession; lensing anisotropy correlated with galactic angular momentum; compression gains on cyclic signals surpassing conventional codecs; and characteristic scaling laws in rotor phase evolution. We provide a reproducible program for experimental validation across physics, signal processing, and machine learning domains.
 \end{abstract}
 
 \noindent\textbf{Keywords:} geometric algebra, rotor fields, unification, coherence, emergent dynamics, information compression
@@ -117,6 +120,7 @@ From this single postulate, we shall demonstrate how:
   \item \textbf{Electromagnetism} appears as a bivector field obeying rotor-induced transport equations.
   \item \textbf{Quantum kinematics} arise from the spinor sector of the rotor representation.
   \item \textbf{Thermodynamic irreversibility} follows from ensemble statistics over rotor phases.
+  \item \textbf{Dark matter} emerges from bivector components dephased relative to electromagnetic observation planes (see companion papers for full derivation).
   \item \textbf{Efficient information encoding} exploits rotor phase structure to compress signals with rotational symmetry.
 \end{enumerate}
 
@@ -221,6 +225,8 @@ Define a local energy density balancing kinetic and potential contributions:
 \end{equation}
 
 The first term $\mathcal{E}$ penalizes rapid spatial variation (gradient energy). The second measures rotor density. The coherence functional $\mathcal{C}$ quantifies phase rigidity: it vanishes when $\Biv$ is constant (perfect coherence) and grows when $\Biv$ exhibits vorticity or curvature. Parameters $(\alpha,\beta,\gamma)$ determine the physical regime---ordered (small $\mathcal{C}$) versus disordered (large $\mathcal{C}$).
+
+\textbf{Note on coupling constant $\alpha$:} In specific physical regimes, the coupling $\alpha$ takes the form $\alpha = \alpha_0 (M_{\text{ref}})^2$ where $\alpha_0$ is dimensionless and $M_{\text{ref}}$ is a reference mass scale. The choice of $M_{\text{ref}}$ depends on context: $M_{\text{Pl}}$ for gravity (where $\alpha = M_{\text{Pl}}^2/(16\pi)$), $M_*^{(EW)}$ for electroweak interactions, $M_*^{(QCD)}$ for strong interactions. This ensures dimensional consistency with $[\alpha] = (\text{mass})^2$ in natural units. See MASTER\_DEFINITIONS.md for details.
 
 \vspace{1em}
 
@@ -593,7 +599,7 @@ A third perspective, inspired by structural realism, suggests that the rotor fie
 
 \section{Concluding Remarks}\label{sec:conclusion}
 
-In this paper, we have developed a unifying framework wherein classical mechanics, electromagnetism, quantum kinematics, thermodynamic irreversibility, and information compression emerge from the dynamics of a single rotor field defined in geometric algebra. The main results are:
+In this paper, we have developed a unifying framework wherein classical mechanics, electromagnetism, quantum kinematics, thermodynamic irreversibility, dark matter phenomenology, and information compression emerge from the dynamics of a single rotor field defined in geometric algebra. The main results are:
 
 \begin{enumerate}
   \item A bivector field $\Biv(x,t)$ generates a rotor field $\Rotor(x,t)=\Exp\!\big(\Biv(x,t)\big)$ whose local dynamics govern observable phenomena across traditionally disparate domains.
@@ -601,9 +607,10 @@ In this paper, we have developed a unifying framework wherein classical mechanic
   \begin{equation*}
   \partial_t \bm{L} = \bm{\tau}, \qquad \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = \mathbf{F}.
   \end{equation*}
-  \item Electromagnetism appears as bivector transport with rotor gauge symmetry. Quantum spinors arise as minimal left ideals of the rotor representation. Thermodynamic entropy emerges from rotor phase dispersion.
+  \item Electromagnetism appears as bivector transport with rotor gauge symmetry. Quantum spinors arise as minimal left ideals of the rotor representation. Thermodynamic entropy emerges from rotor phase dispersion. \textbf{Dark matter} arises from bivector components orthogonal to electromagnetic observation planes---a mechanism fully developed in companion papers~\cite{DarkMatterPaper}.
   \item A rotor-based compression codec exploits phase structure in cyclic signals, yielding falsifiable predictions: compression gains of $0.5$--$1.2$ bits-per-sample on machinery vibration, speech, and ephemerides data.
   \item Gravitational-wave observations of precessing binary systems should exhibit spectral sidebands at $f_{\text{orbital}} \pm n\,\Omega_{\text{prec}}$ if the rotor field description is correct. LIGO/Virgo GWTC-3 events with $\chi_{\text{eff}} > 0.3$ provide testable targets.
+  \item Dark matter lensing anisotropy, with quadrupole moments $\epsilon_2 \sim 10^{-3}$--$10^{-2}$ aligned with galactic angular momentum, provides an independent test of bivector dephasing (detailed predictions in~\cite{DarkMatterPaper}).
 \end{enumerate}
 
 The hypothesis is in its nascent stage. Much work remains to develop the full implications, refine the compression algorithms, compute detailed waveform templates, and conduct systematic experimental tests. If future observations confirm the distinctive signatures of the rotor field---particularly the compression benchmarks on standardized datasets and gravitational wave sidebands in high-spin systems---this would provide strong evidence for the geometric algebra approach to unifying physics and information theory.
