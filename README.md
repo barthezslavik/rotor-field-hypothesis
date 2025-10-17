@@ -86,13 +86,13 @@ Within this framework, the following can be obtained as mathematical consequence
 - `geometric_framework_for_quantum_gravity.tex` - Quantum gravity formulation
 
 **Particle Physics & Fundamental Forces**
-- `electroweak_symmetry_breaking.tex` - Electroweak scale: $M_*^{(\text{EW})} \approx m_t \approx 174$ GeV
+- `electroweak_symmetry_breaking.tex` - Electroweak scale: $M_\ast^{(\text{EW})} \approx m_t \approx 174$ GeV
 - `qcd_from_rotor_confinement.tex` - QCD confinement (flux tube-bag duality)
 - `noether.tex` - Conservation laws from rotor symmetries
 - `renormalization.tex` - RG flow and scale hierarchy
 
 **Cosmology**
-- `inflation.tex` - Rotor inflation with tensor suppression $f_B = (H/M_*)^2$
+- `inflation.tex` - Rotor inflation with tensor suppression $f_B = (H/M_\ast)^2$
 - `dark_energy.tex` - Dark energy as rotor vacuum
 - `dark_matter.tex` - Dark matter from bivector dephasing
   - Rotation curves, lensing anisotropy, sound speed constraints
@@ -180,9 +180,9 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 #### 6. Particle Physics Scales
 **Explains (post-diction)**:
-- Top quark mass: $m_t \approx 173$ GeV $\approx M_*^{(\text{EW})} = v/\sqrt{2} = 174$ GeV
+- Top quark mass: $m_t \approx 173$ GeV $\approx M_\ast^{(\text{EW})} = v/\sqrt{2} = 174$ GeV
 - Top Yukawa: $y_t = m_t\sqrt{2}/v \approx 0.995 \approx 1$ (saturates natural scale)
-- QCD scale: $M_*^{(\text{QCD})} \sim 200$ MeV (flux tube-bag crossover)
+- QCD scale: $M_\ast^{(\text{QCD})} \sim 200$ MeV (flux tube-bag crossover)
 
 **Note**: These are not predictions but consistency checks showing the framework accommodates known values.
 
@@ -257,21 +257,21 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 ## Scale Hierarchy
 
-The rotor stiffness $M_*$ exhibits hierarchical structure:
+The rotor stiffness $M_\ast$ exhibits hierarchical structure:
 
 | Scale | Value | Physical Regime |
 |-------|-------|-----------------|
-| $M_*^{(\text{Pl})}$ | $\sim 2.18 \times 10^{18}$ GeV | Planck scale (gravitational) |
-| $M_*^{(\text{inf})}$ | $\sim 10^{13}$–$10^{16}$ GeV | Inflationary scale |
-| $M_*^{(\text{EW})}$ | $\sim 174$ GeV | Electroweak ($\approx$ top mass $m_t$) |
-| $M_*^{(\text{QCD})}$ | $\sim 200$ MeV | QCD confinement |
+| $M_\ast^{(\text{Pl})}$ | $\sim 2.18 \times 10^{18}$ GeV | Planck scale (gravitational) |
+| $M_\ast^{(\text{inf})}$ | $\sim 10^{13}$–$10^{16}$ GeV | Inflationary scale |
+| $M_\ast^{(\text{EW})}$ | $\sim 174$ GeV | Electroweak ($\approx$ top mass $m_t$) |
+| $M_\ast^{(\text{QCD})}$ | $\sim 200$ MeV | QCD confinement |
 
 **Origin**: Proposed to emerge from renormalization group flow of rotor coupling $\alpha(\mu)$. Full derivation requires quantum field theory treatment (see `renormalization.tex`).
 
 **Observational consequence**: Different scales dominate in different regimes:
-- **Cosmology**: $M_*^{(\text{inf})}$ sets inflationary dynamics
-- **Particle physics**: $M_*^{(\text{EW})}$ and $M_*^{(\text{QCD})}$ set electroweak and strong scales
-- **Quantum gravity**: $M_*^{(\text{Pl})}$ sets Planck scale
+- **Cosmology**: $M_\ast^{(\text{inf})}$ sets inflationary dynamics
+- **Particle physics**: $M_\ast^{(\text{EW})}$ and $M_\ast^{(\text{QCD})}$ set electroweak and strong scales
+- **Quantum gravity**: $M_\ast^{(\text{Pl})}$ sets Planck scale
 
 ---
 
@@ -296,7 +296,7 @@ $$g_{\mu\nu} = e_\mu^a e_\nu^b \eta_{ab}$$
 
 **Action**:
 
-$$S = \int \left[\frac{\alpha}{2} \langle\nabla_\mu R \nabla^\mu \tilde{R}\rangle_0 + \frac{M_*^2}{4} \langle\Omega_\mu\Omega^\mu\rangle_0 - V(R)\right] \sqrt{-g}\, d^4x$$
+$$S = \int \left[\frac{\alpha}{2} \langle\nabla_\mu R \nabla^\mu \tilde{R}\rangle_0 + \frac{M_\ast^2}{4} \langle\Omega_\mu\Omega^\mu\rangle_0 - V(R)\right] \sqrt{-g}\, d^4x$$
 
 where $\langle\cdot\rangle_0$ denotes scalar part (grade-0 projection) and $\Omega_\mu$ is the spin connection.
 
@@ -307,7 +307,7 @@ where $\langle\cdot\rangle_0$ denotes scalar part (grade-0 projection) and $\Ome
 
 **Stress-energy tensor**:
 
-$$T_{\mu\nu}^{(\text{RF})} = \frac{M_*^2}{4}\left[\langle\Omega_\mu\Omega_\nu\rangle_0 - \frac{1}{2}g_{\mu\nu}\langle\Omega_\alpha\Omega^\alpha\rangle_0\right] + \alpha\,\partial_\mu\Phi\,\partial_\nu\Phi - g_{\mu\nu}\left[\frac{\alpha}{2}(\partial\Phi)^2 - V\right]$$
+$$T_{\mu\nu}^{(\text{RF})} = \frac{M_\ast^2}{4}\left[\langle\Omega_\mu\Omega_\nu\rangle_0 - \frac{1}{2}g_{\mu\nu}\langle\Omega_\alpha\Omega^\alpha\rangle_0\right] + \alpha\,\partial_\mu\Phi\,\partial_\nu\Phi - g_{\mu\nu}\left[\frac{\alpha}{2}(\partial\Phi)^2 - V\right]$$
 
 ---
 
@@ -428,11 +428,11 @@ $$T_{\mu\nu}^{(\text{RF})} = \frac{M_*^2}{4}\left[\langle\Omega_\mu\Omega_\nu\ra
 **Possible resolution**: Phase transition in early universe created coherent bivector state (analogous to ferromagnetic alignment), but mechanism unclear.
 
 #### 2. Tensor Suppression
-**Prediction**: $f_B \sim 10^{-12}$ for Planck-scale stiffness $M_* \sim M_{\text{Pl}}$
+**Prediction**: $f_B \sim 10^{-12}$ for Planck-scale stiffness $M_\ast \sim M_{\text{Pl}}$
 
 **Consequence**: Primordial gravitational waves essentially undetectable ($r \sim 10^{-13}$)
 
-**Question**: If $r < 10^{-3}$ is confirmed by future CMB, does this validate rotor theory or is it unfalsifiable? Need to identify $M_*$ regime that gives $r \sim 10^{-3}$ to $10^{-2}$ (detectable but suppressed).
+**Question**: If $r < 10^{-3}$ is confirmed by future CMB, does this validate rotor theory or is it unfalsifiable? Need to identify $M_\ast$ regime that gives $r \sim 10^{-3}$ to $10^{-2}$ (detectable but suppressed).
 
 #### 3. Why This Bivector Decomposition?
 **Assumption**: Dark matter is $B_\perp$ (orthogonal to EM observation plane)
