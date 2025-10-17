@@ -6,7 +6,7 @@ A theoretical framework proposing that spacetime, matter, and cosmological pheno
 
 ## Quick Start (5 minutes)
 
-**The Central Idea**: What if spacetime geometry isn't fundamental, but emerges from a more primitive structure—a "rotor field" R(x,t) = exp(½B(x,t)) where B is a bivector (oriented plane element)?
+**The Central Idea**: What if spacetime geometry isn't fundamental, but emerges from a more primitive structure—a "rotor field" $R(x,t) = \exp(\frac{1}{2}B(x,t))$ where $B$ is a bivector (oriented plane element)?
 
 **What this framework demonstrates**:
 - Einstein's field equations can be obtained as effective dynamics of the rotor-induced metric
@@ -86,13 +86,13 @@ Within this framework, the following can be obtained as mathematical consequence
 - `geometric_framework_for_quantum_gravity.tex` - Quantum gravity formulation
 
 **Particle Physics & Fundamental Forces**
-- `electroweak_symmetry_breaking.tex` - Electroweak scale: M_*^(EW) ≈ m_t ≈ 174 GeV
+- `electroweak_symmetry_breaking.tex` - Electroweak scale: $M_*^{(\text{EW})} \approx m_t \approx 174$ GeV
 - `qcd_from_rotor_confinement.tex` - QCD confinement (flux tube-bag duality)
 - `noether.tex` - Conservation laws from rotor symmetries
 - `renormalization.tex` - RG flow and scale hierarchy
 
 **Cosmology**
-- `inflation.tex` - Rotor inflation with tensor suppression f_B = (H/M_*)²
+- `inflation.tex` - Rotor inflation with tensor suppression $f_B = (H/M_*)^2$
 - `dark_energy.tex` - Dark energy as rotor vacuum
 - `dark_matter.tex` - Dark matter from bivector dephasing
   - Rotation curves, lensing anisotropy, sound speed constraints
@@ -257,21 +257,21 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 ## Scale Hierarchy
 
-The rotor stiffness M_* exhibits hierarchical structure:
+The rotor stiffness $M_*$ exhibits hierarchical structure:
 
-```
-M_*^(Pl)  ~ 2.18 × 10^18 GeV   Planck scale (gravitational)
-M_*^(inf) ~ 10^13 - 10^16 GeV  Inflationary scale
-M_*^(EW)  ~ 174 GeV            Electroweak (≈ top mass m_t)
-M_*^(QCD) ~ 200 MeV            QCD confinement
-```
+| Scale | Value | Physical Regime |
+|-------|-------|-----------------|
+| $M_*^{(\text{Pl})}$ | $\sim 2.18 \times 10^{18}$ GeV | Planck scale (gravitational) |
+| $M_*^{(\text{inf})}$ | $\sim 10^{13}$–$10^{16}$ GeV | Inflationary scale |
+| $M_*^{(\text{EW})}$ | $\sim 174$ GeV | Electroweak ($\approx$ top mass $m_t$) |
+| $M_*^{(\text{QCD})}$ | $\sim 200$ MeV | QCD confinement |
 
-**Origin**: Proposed to emerge from renormalization group flow of rotor coupling α(μ). Full derivation requires quantum field theory treatment (see `renormalization.tex`).
+**Origin**: Proposed to emerge from renormalization group flow of rotor coupling $\alpha(\mu)$. Full derivation requires quantum field theory treatment (see `renormalization.tex`).
 
 **Observational consequence**: Different scales dominate in different regimes:
-- **Cosmology**: M_*^(inf) sets inflationary dynamics
-- **Particle physics**: M_*^(EW) and M_*^(QCD) set electroweak and strong scales
-- **Quantum gravity**: M_*^(Pl) sets Planck scale
+- **Cosmology**: $M_*^{(\text{inf})}$ sets inflationary dynamics
+- **Particle physics**: $M_*^{(\text{EW})}$ and $M_*^{(\text{QCD})}$ set electroweak and strong scales
+- **Quantum gravity**: $M_*^{(\text{Pl})}$ sets Planck scale
 
 ---
 
