@@ -210,7 +210,7 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 ### 3. CMB TB Correlations
 ❌ CMB-S4 constrains:
-- $|C_\ell^{TB}/C_\ell^{TE}| < 10^{-4}$ at all multipoles $\ell = 30$–$3000$
+- $|C_\ell^{TB}/C_\ell^{TE}| < 10^{-4}$ at all multipoles $\ell = 30\text{–}3000$
 
 **Timeline**: 2030-2035
 **Confidence**: Would rule out chiral rotor inflation
@@ -262,7 +262,7 @@ The rotor stiffness $M_\ast$ exhibits hierarchical structure:
 | Scale | Value | Physical Regime |
 |-------|-------|-----------------|
 | $M_\ast^{(\text{Pl})}$ | $\sim 2.18 \times 10^{18}$ GeV | Planck scale (gravitational) |
-| $M_\ast^{(\text{inf})}$ | $\sim 10^{13}$–$10^{16}$ GeV | Inflationary scale |
+| $M_\ast^{(\text{inf})}$ | $\sim 10^{13}\text{–}10^{16}$ GeV | Inflationary scale |
 | $M_\ast^{(\text{EW})}$ | $\sim 174$ GeV | Electroweak ($\approx$ top mass $m_t$) |
 | $M_\ast^{(\text{QCD})}$ | $\sim 200$ MeV | QCD confinement |
 
