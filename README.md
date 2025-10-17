@@ -156,7 +156,7 @@ $$C_\ell^{TB} \propto f_{\text{chiral}} \cdot C_\ell^{TE}$$
 
 $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\text{major}} + \kappa_{\text{minor}}} \sim 10^{-3} \text{ to } 10^{-2}$$
 
-**Test**: Stack ~$10^4$ spiral galaxies (LSST, Euclid)
+**Test**: Stack $\sim 10^4$ spiral galaxies (LSST, Euclid)
 **Null test**: Face-on disks ($i < 20°$) should show $\varepsilon_2 \to 0$
 **Status**: **This is the most accessible near-term test**
 
@@ -166,7 +166,7 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 - Specific angular momentum $L_{\text{spin}}$
 - Tidal field alignment (cosmic web)
 
-**Dataset**: SPARC rotation curves (~175 galaxies currently, ~$10^5$ with SKA)
+**Dataset**: SPARC rotation curves (~175 galaxies currently, $\sim 10^5$ with SKA)
 **Analysis**: Multivariate regression testing $v_R^2 \propto f(h/R, L_{\text{spin}}, \tau_{\text{LSS}})$
 **Status**: Can be tested with existing data
 
@@ -210,7 +210,7 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 ### 3. CMB TB Correlations
 ❌ CMB-S4 constrains:
-- $|C_\ell^{TB}/C_\ell^{TE}| < 10^{-4}$ at all multipoles $\ell = 30$-$3000$
+- $|C_\ell^{TB}/C_\ell^{TE}| < 10^{-4}$ at all multipoles $\ell = 30$–$3000$
 
 **Timeline**: 2030-2035
 **Confidence**: Would rule out chiral rotor inflation
@@ -279,8 +279,8 @@ The rotor stiffness $M_\ast$ exhibits hierarchical structure:
 
 ### Geometric Algebra Foundations
 - **Clifford algebra** $\text{Cl}(1,3)$ with basis $\{\gamma_\mu\}$ satisfying $\gamma_\mu\gamma_\nu + \gamma_\nu\gamma_\mu = 2\eta_{\mu\nu}$
-- **Bivectors**: $B = \frac{1}{2}B^{\mu\nu} \gamma_\mu \wedge \gamma_\nu$ (6-dimensional space, isomorphic to Lie algebra $\mathfrak{so}(1,3)$)
-- **Rotors**: $R = \exp(\frac{1}{2}B) \in \text{Spin}(1,3)$ (double cover of Lorentz group $\text{SO}^+(1,3)$)
+- **Bivectors**: $B = \frac{1}{2}B^{\mu\nu} \gamma_\mu \wedge \gamma_\nu$ — 6-dimensional space, isomorphic to Lie algebra $\mathfrak{so}(1,3)$
+- **Rotors**: $R = \exp(\frac{1}{2}B) \in \text{Spin}(1,3)$ — double cover of Lorentz group $\text{SO}^+(1,3)$
 
 ### Field Equations
 
