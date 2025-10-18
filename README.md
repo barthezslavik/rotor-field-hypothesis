@@ -15,7 +15,7 @@ A theoretical framework proposing that spacetime, matter, and cosmological pheno
 
 ## Quick Start (5 minutes)
 
-**The Central Idea**: What if spacetime geometry isn't fundamental, but emerges from a more primitive structure—a "rotor field" $R(x,t) = \exp(\frac{1}{2}B(x,t))$ where $B$ is a bivector (oriented plane element)?
+**The Central Idea**: Spacetime geometry emerges from a fundamental bivector field $B(x,t)$ through the rotor $R(x,t) = \exp(\frac{1}{2}B(x,t))$, where bivectors are oriented plane elements in geometric algebra. The metric tensor and all physical structures derive from this more primitive geometric object.
 
 **What this framework demonstrates**:
 - Einstein's field equations can be obtained as effective dynamics of the rotor-induced metric
