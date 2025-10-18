@@ -25,7 +25,7 @@ A theoretical framework proposing that spacetime, matter, and cosmological pheno
 
 **Status**: Independent theoretical research showing **preliminary consistency with four observational datasets** (LIGO gravitational waves, SPARC rotation curves [geometry + angular momentum], Planck CMB parity violation - see [Key Predictions](#key-predictions)). Requires peer review and experimental validation.
 
-**🎯 NEW (2025-10-18)**: Four observational tests spanning 20 orders of magnitude in scale show consistency with rotor field predictions (combined significance ~6σ using Fisher's method, with important caveats regarding independence and post-hoc nature).
+Four observational tests spanning 20 orders of magnitude in scale show consistency with rotor field predictions (combined significance ~6σ using Fisher's method, with important caveats regarding independence and post-hoc nature).
 
 **For quick access**: Jump to [Four Observational Consistency Checks](#four-observational-consistency-checks-2025-10-18) or [Falsification Criteria](#falsification-criteria).
 
