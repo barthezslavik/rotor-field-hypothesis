@@ -802,7 +802,3 @@ This work was conducted independently without institutional affiliation, grants,
 3. **Observational tests**: Apply framework to existing data (SPARC, Planck, LSST DR1)
 
 **Pull requests and issues**: Open for discussion of technical content, mathematical errors, and clarification requests.
-
----
-
-*"The potential for physics has barely been tapped."* — David Hestenes (1966)
