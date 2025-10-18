@@ -261,8 +261,6 @@ Thin disk (h/R ~ 0.01) → Smaller rotor volume → Weaker field → More "dark 
 
 **Analysis code**: `sparc_analysis/` directory
 - Main analysis: `analyze_sparc_v2.py`
-- Detailed interpretation: `SPARC_INTERPRETATION.md`
-- Summary: `SUMMARY.md`
 - Visualization: `sparc_rotor_analysis_v2.png`
 
 **Key insight**: Dark matter paradigm does NOT predict any correlation between disk geometry and "missing mass". The fact that we observe strong correlation (p=0.0005) suggests the "missing mass" is not dark matter but rotor field effects that depend on disk geometry.
@@ -293,7 +291,6 @@ $$C_\ell^{TB} \neq 0, \quad \alpha_{\text{rotation}} \sim B_0 \cdot d / H_0$$
 **Key finding**: Planck detected parity violation at 2.5σ. Standard cosmology cannot explain this. Rotor Field Theory naturally predicts this effect from rotor-induced photon rotation during propagation from last scattering surface.
 
 **Analysis code**: `cmb_analysis/` directory
-- Physics explanation: `README.md`
 - Planck data analysis: `check_planck_parity.py`
 - Theory comparison plot: `cmb_parity_rotor.png`
 
