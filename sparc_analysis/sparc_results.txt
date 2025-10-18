@@ -1,0 +1,21 @@
+======================================================================
+SPARC ROTATION CURVE ANALYSIS RESULTS
+======================================================================
+
+Sample Size: N = 142 galaxies
+
+ROTOR FIELD THEORY TEST
+----------------------------------------------------------------------
+Correlation (h/R vs ΔV²): r = 0.316
+Statistical significance: p = 0.0001
+Linear fit: ΔV² = 83.01×(h/R) + -9.84
+
+✅ RESULT: Statistically significant correlation found!
+
+======================================================================
+GALAXY SAMPLE STATISTICS
+======================================================================
+h/R range: 0.094 - 0.245
+h/R median: 0.203
+V_max range: 24.3 - 383.0 km/s
+Avg DM fraction: 0.52 ± 0.18
