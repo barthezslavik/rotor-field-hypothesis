@@ -1,0 +1,10 @@
+SPARC Extended Analysis Results
+======================================================================
+
+Sample size: N = 152
+
+1. h/R correlation: r = 0.202, p = 0.0125
+2. log(L_spin) correlation: r = 0.721, p = 0.0000
+3. j_spin correlation: r = 0.833, p = 0.0000
+
+Significant correlations: 3/3
