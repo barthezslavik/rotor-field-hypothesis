@@ -1,5 +1,14 @@
 # The Rotor Field Theory: A Geometric Framework for Physics
 
+> **⚠️ PREPRINT STATUS - NOT PEER REVIEWED**
+>
+> This work has not undergone formal peer review. Statistical claims and observational
+> analyses presented here are preliminary and require independent verification by the
+> scientific community. Claims of "observational support" should be interpreted as
+> "preliminary consistency checks with existing data" pending rigorous peer review.
+>
+> **Read with appropriate scientific skepticism.**
+
 A theoretical framework proposing that spacetime, matter, and cosmological phenomena can be described through a fundamental bivector field in geometric (Clifford) algebra.
 
 ---
@@ -14,11 +23,11 @@ A theoretical framework proposing that spacetime, matter, and cosmological pheno
 - Dark matter may be rotor field components misaligned with electromagnetic observation planes
 - Dark energy arises from rotor vacuum state
 
-**Status**: Independent theoretical research with **four independent confirmations** (LIGO gravitational waves, SPARC rotation curves [geometry + angular momentum], Planck CMB parity violation - see [Key Predictions](#key-predictions)). Requires peer review and experimental validation.
+**Status**: Independent theoretical research showing **preliminary consistency with four observational datasets** (LIGO gravitational waves, SPARC rotation curves [geometry + angular momentum], Planck CMB parity violation - see [Key Predictions](#key-predictions)). Requires peer review and experimental validation.
 
-**🎯 NEW (2025-10-18)**: Four independent astrophysical tests spanning 20 orders of magnitude in scale all confirm rotor field predictions with combined significance ~8.0σ.
+**🎯 NEW (2025-10-18)**: Four observational tests spanning 20 orders of magnitude in scale show consistency with rotor field predictions (combined significance ~6σ using Fisher's method, with important caveats regarding independence and post-hoc nature).
 
-**For quick access**: Jump to [Four Independent Confirmations](#four-independent-confirmations-2025-10-18) or [Falsification Criteria](#falsification-criteria).
+**For quick access**: Jump to [Four Observational Consistency Checks](#four-observational-consistency-checks-2025-10-18) or [Falsification Criteria](#falsification-criteria).
 
 ---
 
@@ -131,27 +140,37 @@ pdflatex dark_matter.tex
 
 ## Key Predictions
 
-### FOUR INDEPENDENT CONFIRMATIONS (2025-10-18)
+### FOUR OBSERVATIONAL CONSISTENCY CHECKS (2025-10-18)
 
-**Rotor Field Theory has now been tested against four independent astrophysical observations:**
+**Rotor Field Theory shows preliminary consistency with four astrophysical datasets:**
 
 | # | Test | Observable | Prediction | Result | Significance | Sample |
 |---|------|-----------|------------|--------|--------------|--------|
-| **1** | **LIGO GW Sidebands** | Ω_prec ∝ χ_eff | Correlation | ✅ **r=0.599** | **p=0.0305** | N=13 |
-| **2** | **SPARC Rotation Curves** | ΔV² ∝ -h/R | Negative corr. | ✅ **r=-0.290** | **p=0.0005** | N=141 |
-| **3** | **SPARC Angular Momentum** | ΔV² ∝ L_spin | Positive corr. | ✅ **r=0.464** | **p=4.2×10⁻⁹** | N=141 |
-| **4** | **Planck CMB Parity** | α_TB ≠ 0 | α ~ 0.1°-1° | ✅ **α=0.35°±0.14°** | **2.5σ** | Planck 2018 |
+| **1** | **LIGO GW Sidebands** | Ω_prec ∝ χ_eff | Correlation | r=0.599 | p=0.0305 (2.2σ) | N=13 |
+| **2** | **SPARC Rotation Curves** | ΔV² ∝ -h/R | Negative corr. | r=-0.290 | p=0.0005 (3.5σ) | N=141 |
+| **3** | **SPARC Angular Momentum** | ΔV² ∝ L_spin | Positive corr. | r=0.464 | p=4.2×10⁻⁹ (5.9σ) | N=141 |
+| **4** | **Planck CMB Parity** | α_TB ≠ 0 | α ~ 0.1°-1° | α=0.35°±0.14° | 2.5σ | Planck 2018 |
 
-**Combined probability**: p_combined ~ 0.0305 × 0.0005 × 4.2×10⁻⁹ × 0.012 ≈ 7.7×10⁻¹⁶ (assuming independence)
+**Statistical Summary**:
 
-This corresponds to **~8.0σ significance** that all four are not coincidences.
+*Combined significance* (Fisher's method for 3 quasi-independent tests):
+- Tests used: LIGO (p=0.0305), SPARC multivariate (p≈4×10⁻⁹), CMB (p≈0.012)
+- Fisher's χ² = -2[ln(p₁) + ln(p₂) + ln(p₃)] ≈ 54.4 (df=6)
+- Combined p-value: ~10⁻⁹ (approximately 6σ equivalent)
 
-**Key insight**: These four tests probe rotor field effects at completely different scales:
-- **LIGO**: Black hole mergers (~10-100 M☉, r ~ 10 km)
-- **SPARC (geometry + kinematics)**: Galaxy rotation curves (~10^10-10^12 M☉, r ~ 1-100 kpc)
-- **Planck**: CMB photons from recombination (z=1100, d ~ 14 Gpc)
+**Important caveats**:
+1. **Not fully independent**: SPARC tests #2 and #3 use the same galaxy sample (multivariate correlation, not independent tests)
+2. **Post-hoc analyses**: All tests performed on archival data; dedicated experiments needed for confirmation
+3. **Moderate individual significance**: LIGO (2.2σ) and CMB (2.5σ) are suggestive but not definitive alone
+4. **Multiple testing**: Look-elsewhere effect not fully accounted for
+5. **Alternative explanations**: Correlations observed, but causation not proven (see [Open Issues](#open-issues-and-limitations))
 
-The fact that **all four** independently confirm rotor field predictions suggests this is not a statistical fluke but a real physical effect spanning 20 orders of magnitude in scale. Notably, tests #2 and #3 use the same galaxies but probe different physical quantities (geometry vs. angular momentum), providing orthogonal validation.
+**Key insight**: These tests probe different physical scales:
+- **LIGO**: Black hole mergers (~10 km)
+- **SPARC**: Galaxy rotation curves (~1-100 kpc)
+- **CMB**: Cosmic microwave background (~14 Gpc comoving distance)
+
+The consistency across ~20 orders of magnitude in scale is encouraging but requires independent replication and prospective predictions (not post-hoc fits) for confirmation. Tests #2 and #3 probe orthogonal aspects (geometry vs. kinematics) of the same galaxies, providing complementary constraints rather than independent confirmation.
 
 ---
 
@@ -166,27 +185,27 @@ $$A_n \propto \left(\frac{\Omega_{\text{prec}}}{f_{\text{orbital}}}\right)^n \cd
 
 **Target**: LIGO/Virgo events with $\chi_{\text{eff}} > 0.3$, SNR ≥ 15
 **Signature**: $\Delta\chi^2 \geq 10$ improvement over non-precessing templates
-**Status**: ✅ **STATISTICALLY SIGNIFICANT** - Analysis of N=14 LIGO events confirms predicted correlation
+**Status**: Analysis of N=14 LIGO events shows correlation consistent with prediction (p=0.0305, marginally significant at 2.2σ)
 
 #### GW Sideband Analysis Results (Outlier Analysis Complete, 2025-10-18)
 
-**RIGOROUS OUTLIER INVESTIGATION** identified GW200208 as instrumental artifact:
+Outlier investigation identified GW200208 as instrumental artifact:
 - **Carrier frequency mismatch**: H1 ~299.50 Hz vs L1 ~32.88 Hz (9× difference)
 - **L1 power anomaly**: 90× higher than H1 (instrumental glitch signature)
 - **Conclusion**: GW200208 excluded from primary analysis
 
 **PRIMARY ANALYSIS - N=13 Clean Sample (GW200208 excluded)**:
-- **H1 detector**: r = 0.599, **p = 0.0305 < 0.05** ✅ **STATISTICALLY SIGNIFICANT**
+- **H1 detector**: r = 0.599, **p = 0.0305 < 0.05** Statistically significant
 - **Average (H1+L1)/2**: r = 0.488, p = 0.0906 (approaching significance)
 - **Linear fit (H1)**: Ω = 16.70×χ_eff - 0.79 Hz
 - **RMS residuals**: H1 = 2.33 Hz, Avg = 2.48 Hz
 
 **SUPPLEMENTARY ANALYSIS - N=14 Full Sample (all events)**:
-- **H1 detector**: r = 0.690, **p = 0.0063 < 0.05** ✅ **STATISTICALLY SIGNIFICANT**
+- **H1 detector**: r = 0.690, **p = 0.0063 < 0.05** Statistically significant
 - **Average**: r = 0.529, p = 0.0516
 - **Linear fit (H1)**: Ω = 22.04×χ_eff - 1.89 Hz
 
-**KEY FINDING**: Both N=13 and N=14 show **statistical significance** (p<0.05) for H1 detector, confirming robustness of Rotor Field Theory prediction **Ω_prec ∝ χ_eff**.
+Finding: Both N=13 and N=14 show **statistical significance** (p<0.05) for H1 detector, supporting of Rotor Field Theory prediction **Ω_prec ∝ χ_eff**.
 
 **Analysis code**: `gw_analysis/` directory
 - Sideband detection: `scripts/gw_sidebands.py`
@@ -216,7 +235,7 @@ $$A_n \propto \left(\frac{\Omega_{\text{prec}}}{f_{\text{orbital}}}\right)^n \cd
 - **N=13 (primary)**: Cleaner sample, more conservative p-value
 - **N=14 (supplementary)**: Stronger correlation, validates against cherry-picking
 
-**Theory Validation Score**: Core prediction **Ω ∝ χ_eff confirmed at >95% confidence** (N=13) and >99% confidence (N=14)
+Analysis summary: Core prediction **Ω ∝ χ_eff observed at >95% confidence** (N=13) and >99% confidence (N=14)
 
 **Documentation**:
 - Outlier analysis: `gw_analysis/plots/outlier_investigation_report.txt`
@@ -229,10 +248,13 @@ $$A_n \propto \left(\frac{\Omega_{\text{prec}}}{f_{\text{orbital}}}\right)^n \cd
 2. Expand to N~80 events for comprehensive GWTC-3 validation
 3. Develop matched filtering templates for Einstein Telescope era
 
-#### 2. SPARC Galaxy Rotation Curves (CONFIRMED, 2025-10-18)
+#### 2. SPARC Galaxy Rotation Curves (Observed, 2025-10-18)
+
+> **Post-hoc analysis**: This correlation was found in archival SPARC data. While statistically significant, independent replication with new data is needed for confirmation.
+
 **Prediction**: Rotor vortex strength correlates with disk geometry. Specifically, thicker disks (larger h/R) should have stronger rotor field effects, requiring less "dark matter" to explain rotation curves.
 
-**Result**: ✅ **STATISTICALLY SIGNIFICANT**
+**Result**: Correlation observed
 - **Correlation**: r = -0.290, **p = 0.0005 < 0.001**
 - **Sample size**: N = 141 late-type galaxies from SPARC database
 - **Finding**: Thicker disks (h/R = 0.02-0.03) have **less ΔV²** (dark matter component)
@@ -254,7 +276,7 @@ Thin disk (h/R ~ 0.01) → Smaller rotor volume → Weaker field → More "dark 
 
 **Key insight**: Dark matter paradigm does NOT predict any correlation between disk geometry and "missing mass". The fact that we observe strong correlation (p=0.0005) suggests the "missing mass" is not dark matter but rotor field effects that depend on disk geometry.
 
-#### 3. CMB Parity Violation (CONFIRMED, 2025-10-18)
+#### 3. CMB Parity Violation (Observed, 2025-10-18)
 **Prediction**: Rotor field breaks parity symmetry, creating non-zero TB cross-spectrum:
 
 $$C_\ell^{TB} \neq 0, \quad \alpha_{\text{rotation}} \sim B_0 \cdot d / H_0$$
@@ -264,7 +286,7 @@ $$C_\ell^{TB} \neq 0, \quad \alpha_{\text{rotation}} \sim B_0 \cdot d / H_0$$
 - **ΛCDM prediction**: α = 0° (parity conserved)
 - **Rotor Theory prediction**: α ~ 0.1°-1° for B₀ ~ 10^-16 to 10^-18
 
-**Result**: ✅ **ROTOR THEORY MATCHES OBSERVATION**
+**Result**: ROTOR THEORY MATCHES OBSERVATION**
 - **Best-fit rotor constant**: B₀ = 1.00×10^-16 reproduces α = 0.35°
 - **Chi-squared**: χ² ≈ 0 (perfect fit)
 - **p-value**: 1.0 (rotor theory consistent with data)
@@ -274,7 +296,7 @@ $$C_\ell^{TB} \neq 0, \quad \alpha_{\text{rotation}} \sim B_0 \cdot d / H_0$$
 |--------|---------------|-----|---------|--------|
 | ΛCDM (Standard) | 0.00° | 6.25 | 0.012 | ❌ Excluded 2.5σ |
 | Cosmic Birefringence | 0.35° | 0.00 | 1.0 | ✅ Fits (but tautological) |
-| **Rotor Field Theory** | **0.35°** | **0.00** | **1.0** | ✅ **Predicted & confirmed** |
+| **Rotor Field Theory** | **0.35°** | **0.00** | **1.0** | Predicted & confirmed** |
 | Axion-like Particles | 0.10° | 3.19 | 0.074 | ~ Marginal |
 
 **Key finding**: Planck detected parity violation at 2.5σ. Standard cosmology cannot explain this. Rotor Field Theory naturally predicts this effect from rotor-induced photon rotation during propagation from last scattering surface.
@@ -289,29 +311,21 @@ $$C_\ell^{TB} \neq 0, \quad \alpha_{\text{rotation}} \sim B_0 \cdot d / H_0$$
 - Minami & Komatsu 2020 (PRL): Confirmed 2.4σ significance
 - Diego-Palazuelos et al 2022: Updated to α = 0.30° ± 0.11° (2.7σ)
 
-#### 4. CMB ℓ-dependence (Method Demonstrated, 2025-10-18)
+#### 4. CMB ℓ-dependence (Future Test)
 **Prediction**: TB/EB correlations with specific ℓ-dependence from rotor field:
 
 $$C_\ell^{TB} \propto f_{\text{chiral}}(\ell) \cdot C_\ell^{TE}$$
 
 where $f_{\text{chiral}}$ encodes rotor chirality with characteristic scale ℓ₀ ~ 180 (ξ ~ 85 Mpc).
 
-**Analysis (synthetic data demonstration)**:
-- **ΛCDM (α=0)**: χ² = 676,366, p < 0.0001 ❌ **Excluded**
-- **Constant rotation**: χ² = 62,011
-- **Rotor model (ℓ-dependent)**: χ² = 3.05, p = 0.22 ✅ **Excellent fit**
-- **ΔBIC = 62,003**: Rotor model STRONGLY preferred over constant α
+**Test strategy**: Analyze Planck TB and TE power spectra to measure rotation angle α(ℓ) as function of multipole. Rotor theory predicts characteristic scale ℓ₀ ~ 180, while phenomenological models predict constant α.
 
-**Interpretation**: The rotor field naturally predicts ℓ-dependent parity violation, not just a constant rotation angle. The characteristic scale ℓ₀ ~ 164 corresponds to rotor field correlation length ξ ~ 85 Mpc.
+**Current status**:
+- **Requires**: Planck Legacy Archive (PLA) access for TB/TE power spectra
+- **Future**: Simons Observatory / CMB-S4 (2030s) with 10× better sensitivity
+- **Methodology**: Developed (see `cmb_analysis/analyze_planck_ell_dependence.py`)
 
-**Status**:
-- ✅ **Method validated** with synthetic Planck-like data
-- ⏳ **Awaiting real Planck TB power spectrum** (PLA archive, requires authentication)
-- ⏳ **Future**: Simons Observatory / CMB-S4 (2030s) with 10× better sensitivity
-
-**Analysis code**: `cmb_analysis/analyze_planck_ell_dependence.py`
-
-**Note**: This is a demonstration of methodology using synthetic data based on Planck 2018 results (α = 0.35° ± 0.14°). Actual Planck TB/TE power spectra will provide definitive test.
+**Timeline**: Testable once PLA data obtained; definitive test with CMB-S4 (~2030-2035)
 
 #### 5. Dark Matter Lensing Quadrupoles (LSST Forecast, 2025-10-18)
 **Prediction**: Weak lensing mass distributions show quadrupole aligned with galactic angular momentum:
@@ -326,7 +340,7 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 | Dataset | N_lens | N_source | Expected SNR | Detection? |
 |---------|--------|----------|--------------|------------|
 | Year 1 (2027) | 1,000 | 50,000 | ~1-3σ | Marginal |
-| Year 3 (2029) | 10,000 | 1,000,000 | ~10σ | ✅ **Definitive** |
+| Year 3 (2029) | 10,000 | 1,000,000 | ~10σ | Definitive** |
 | Year 10 (2034) | 50,000 | 10,000,000 | ~20σ | Exquisite |
 
 **Falsification criterion**:
@@ -347,10 +361,13 @@ $$\varepsilon_2 = \frac{\kappa_{\text{major}} - \kappa_{\text{minor}}}{\kappa_{\
 
 **Status**: **Testable starting 2027** (LSST Year 1), **definitive by 2029** (Year 3). This is arguably the most powerful near-term falsification test.
 
-#### 6. Extended Rotation Curve Predictions (CONFIRMED, 2025-10-18)
-**Prediction**: Rotor field strength correlates with angular momentum. Beyond the confirmed h/R correlation, the "missing mass" should correlate with specific angular momentum $L_{\text{spin}} = M_{\text{baryon}} \times V_{\text{rot}} \times R_{\text{eff}}$.
+#### 6. Extended Rotation Curve Predictions (Observed, 2025-10-18)
 
-**Result**: ✅ **STATISTICALLY SIGNIFICANT**
+> **Post-hoc analysis**: Same SPARC dataset as test #2. Tests #2 and #3 are not independent—they probe orthogonal aspects of the same galaxies.
+
+**Prediction**: Rotor field strength correlates with angular momentum. Beyond the observed h/R correlation, the "missing mass" should correlate with specific angular momentum $L_{\text{spin}} = M_{\text{baryon}} \times V_{\text{rot}} \times R_{\text{eff}}$.
+
+**Result**: Correlation observed
 - **Angular momentum correlation**: r = 0.464, **p = 4.2×10⁻⁹ < 10⁻⁸**
 - **Sample size**: N = 141 late-type galaxies from SPARC database
 - **Finding**: Higher angular momentum → stronger rotor field → MORE ΔV² (apparent dark matter)
@@ -588,7 +605,7 @@ $$T_{\mu\nu}^{(\text{RF})} = \frac{M_\ast^2}{4}\left[\langle\Omega_\mu\Omega_\nu
 - SKA Phase 2 (2030s): 10⁵ rotation curves
 
 **Possible outcomes**:
-1. ✅ **Confirmation**: Quadrupoles detected, sidebands observed → Strong evidence for rotor theory
+1. Confirmation**: Quadrupoles detected, sidebands observed → Strong evidence for rotor theory
 2. ❌ **Falsification**: Null results at required sensitivity → Theory ruled out
 3. 🤷 **Ambiguous**: Partial evidence, needs next-generation instruments
 
@@ -650,6 +667,211 @@ $$T_{\mu\nu}^{(\text{RF})} = \frac{M_\ast^2}{4}\left[\langle\Omega_\mu\Omega_\nu
 **Question**: Why does this decomposition occur? What physical process causes dephasing between $B_\parallel$ and $B_\perp$?
 
 **Speculative answer**: Reheating after inflation produces bivector orientations, electromagnetic fields select measurement basis, orthogonal components appear dark. But this is not rigorous.
+
+---
+
+## Potential Showstoppers
+
+**Critical issues that could invalidate the theory:**
+
+### 1. Renormalization Failure
+**Problem**: If rotor field theory is non-renormalizable, quantum corrections will destroy all predictions above some energy scale.
+
+**Current status**:
+- Power counting suggests renormalizability (dimension-2 kinetic term in 3+1D)
+- β-functions not calculated
+- UV fixed point or asymptotic freedom unknown
+
+**Impact if true**: Theory valid only as effective field theory below cutoff Λ. All claims about fundamental unification would be invalidated.
+
+**Test**: Explicit loop calculations required. If divergences cannot be absorbed by counterterms → theory fails.
+
+### 2. Fine-Tuning Crisis
+**Problem**: Dark matter sound speed constraint requires σ_B ≲ 2×10⁻⁵ (bivector alignment precision of ~0.001%).
+
+**Significance**: This is extreme fine-tuning. Why is rotor field so precisely aligned across cosmological volumes?
+
+**Comparison**: Similar to cosmological constant problem (fine-tuned to 1 part in 10¹²⁰).
+
+**Impact if unresolved**: Theory trades dark matter problem for equally severe fine-tuning problem.
+
+**Possible outs**:
+- Anthropic selection (only aligned regions form galaxies)
+- Unknown symmetry enforcing alignment
+- Phase transition with long correlation length
+
+**Credibility**: Without mechanism, this severely undermines naturalness.
+
+### 3. Alternative Explanations for Correlations
+**Problem**: Observed correlations (h/R with ΔV², L_spin with ΔV²) may have standard astrophysical explanations.
+
+**Specific concerns**:
+- **SPARC correlations**: Disk thickness h/R correlates with formation history, which independently affects dark matter halo properties in ΛCDM simulations
+- **LIGO precession**: Small sample (N=13), marginal significance (p=0.0305), could be statistical fluctuation
+- **CMB parity**: 2.5σ result could be systematic error or rare fluctuation
+
+**Test**: Need to rule out alternative explanations:
+1. Match SPARC correlations with ΛCDM simulations including baryonic feedback
+2. Expand LIGO sample to N>50 for robust statistics
+3. Independent CMB dataset (not Planck) confirming parity violation
+
+**Impact if alternatives succeed**: Current "confirmations" would be coincidences, leaving theory without observational support.
+
+### 4. Tensor-to-Scalar Ratio Problem
+**Issue**: Rotor inflation predicts r ∼ 10⁻¹² (undetectable), making inflation prediction unfalsifiable.
+
+**Problem**: Any theory can claim "inflation happened but left no detectable tensor modes."
+
+**Credibility concern**: Prediction should be testable. If r is forever unobservable, this aspect of theory has no empirical content.
+
+**Possible resolution**: Identify parameter regime where M_ast allows r ∼ 10⁻³ (detectable), or acknowledge inflation component is speculative.
+
+### 5. Bullet Cluster Alternative
+**Problem**: Rotor theory claims B_⊥ is collisionless, explaining Bullet Cluster. But is this derivable or just asserted?
+
+**Question**: What prevents bivector "self-interactions"? What mechanism makes B_⊥ collisionless while being gravitationally coupled?
+
+**Test**: Derive collisionless nature from first principles, or acknowledge this is an assumption.
+
+**Impact if assumption**: Bullet Cluster "success" is not predictive—theory tuned to match observation.
+
+### 6. The "Theory of Everything" Red Flag
+**Historical context**: Many proposed "theories of everything" have claimed to:
+- Unify gravity and quantum mechanics
+- Explain dark matter and dark energy
+- Reproduce Standard Model
+
+**All have failed peer review or empirical tests.**
+
+**Question**: What makes rotor field theory different from:
+- E8 Theory (Garrett Lisi, 2007) - geometric algebra, failed
+- Causal Dynamical Triangulations - spacetime emergence, inconclusive
+- Asymptotic Safety - quantum gravity, testable but not confirmed
+- Dozens of others?
+
+**Burden of proof**: Extraordinary claims require extraordinary evidence. Current ~6σ from post-hoc correlations is not extraordinary evidence.
+
+### 7. No Institutional Validation
+**Fact**: Theory developed outside academia, not yet peer reviewed.
+
+**Concern**: Peer review exists to catch errors in logic, calculation, and interpretation. Bypassing this process (even temporarily) means errors may persist.
+
+**Examples of issues peer review might catch**:
+- Statistical methodology (Fisher's method application)
+- Alternative explanations for correlations
+- Overclaiming significance of results
+- Subtle errors in derivations
+
+**Recommendation**: Submit to journals (PRD, CQG, JCAP) before public claims of observational support.
+
+---
+
+## Devil's Advocate: Critical Questions
+
+**Questions a skeptical physicist would ask:**
+
+### Q1: Why should we believe spacetime emerges from bivectors specifically?
+**Answer needed**: Strings, loops, causal sets, spin foams, etc. all claim spacetime emergence. What unique evidence favors bivectors?
+
+**Current evidence**: Correlations with astronomical data. But these are circumstantial—many theories could fit these correlations.
+
+**Better answer**: Derive a unique prediction no other theory makes, then confirm it prospectively (not post-hoc).
+
+### Q2: How do you avoid confirmation bias?
+**Concern**: If you test 100 correlations and report only the 4 that worked, p-values are meaningless.
+
+**Protection needed**:
+1. Pre-register predictions before testing data
+2. Report null results (what correlations were tested but failed?)
+3. Independent replication by skeptical researchers
+
+**Current status**: All tests are post-hoc (data existed before predictions were tested).
+
+### Q3: What would falsify your theory?
+**Good answers** (specific, testable):
+- LSST finds ε₂ < 10⁻⁴ for lensing quadrupoles
+- SPARC correlations disappear with larger sample
+- Renormalization proof shows non-renormalizability
+
+**Bad answers** (vague, unfalsifiable):
+- "If General Relativity is wrong" (too broad)
+- "If future experiments don't confirm predictions" (delays indefinitely)
+
+**Current status**: Falsification criteria exist (see [Falsification Criteria](#falsification-criteria)) but are distant future (2027-2035).
+
+### Q4: Why hasn't geometric algebra approach succeeded before?
+**Fact**: Hestenes, Doran, Lasenby promoted geometric algebra for decades.
+
+**Their claims**:
+- Simpler formulation of physics
+- Natural description of spin
+- Unification potential
+
+**Result**: Mainstream physics didn't adopt it (textbooks still use tensor notation, spinor formalism).
+
+**Question**: If geometric algebra were truly superior, why hasn't it replaced standard methods?
+
+**Possible answers**:
+1. Physics community is conservative (plausible)
+2. Advantages are overstated (concerning)
+3. Missing ingredient only now discovered (rotor field as fundamental)
+
+**Which is true?** Burden is on rotor theory to demonstrate concrete advantage, not just reformulation.
+
+### Q5: How do you explain the fine-tuning?
+**Specific example**: σ_B ≲ 2×10⁻⁵ (0.001% alignment precision).
+
+**Standard response**: "There must be a mechanism we haven't discovered yet."
+
+**Skeptic's response**: "Every failed theory invokes unknown mechanisms to save fine-tuning."
+
+**Better answer needed**: Either:
+1. Find the mechanism (e.g., derive from symmetry)
+2. Calculate probability anthropically (observer selection)
+3. Acknowledge fine-tuning as unresolved problem
+
+**Currently**: No mechanism proposed, just speculation about phase transitions.
+
+### Q6: What's the Occam's Razor case?
+**Rotor theory parameters** (honest count):
+- Rotor stiffness M_ast (at least 4 scales: Planck, inflation, EW, QCD)
+- Rotor vacuum B₀
+- All Standard Model parameters (~26: masses, mixing angles, couplings)
+- Cosmological parameters (H₀, Ω_m, etc.)
+
+**Total**: ~35+ free parameters
+
+**Standard Model + ΛCDM**: ~31 parameters
+
+**Question**: How is rotor theory simpler?
+
+**Answer**: It's not about parameter count, but about **explanatory unity**. Rotor theory *derives* GR and QM structure from single postulate (bivector field).
+
+**Counterargument**: But derivations involve choosing action functional, potential V(R), coupling constants—which are additional assumptions.
+
+**Verdict**: Theory trades parameter simplicity for conceptual unity. Whether this is net progress is debatable.
+
+### Q7: Why trust preliminary results?
+**Situation**: Theory has not passed peer review, yet claims observational support.
+
+**Standard scientific process**:
+1. Develop theory
+2. Submit to peer review
+3. Revise based on criticism
+4. **Then** test against data
+5. **Then** claim observational support (if survives)
+
+**Current situation**:
+1. Develop theory
+2. Test against data
+3. Claim observational support
+4. Now seeking peer review
+
+**Concern**: Reversing the order creates confirmation bias risk.
+
+**Response**: Independent researchers should replicate analyses before accepting claims.
+
+---
 
 ### Comparison with Competitors
 
