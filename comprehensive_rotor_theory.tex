@@ -183,7 +183,7 @@ B = \frac{1}{2}B^{\mu\nu}\gamma_\mu \wedge \gamma_\nu = \sum_{0 \le \mu < \nu \l
 Bivectors represent oriented plane elements in space-time. They span a 6-dimensional space $\Biv(1,3)$, isomorphic to the Lie algebra $\mathfrak{so}(1,3)$ of the Lorentz group.
 
 \begin{theorem}[Bivector Algebra]
-For a simple bivector $B = \lambda \, \hat{B}$ where $\hat{B}^2 = \pm 1$, we have
+For a simple bivector $B = \lambda \, \hat{B}$ where $\hat{B}^2 = \pm 1$, we have the general power formulas
 \begin{equation}
 B^{2n} = (\lambda^2)^n (\hat{B}^2)^n, \qquad B^{2n+1} = (\lambda^2)^n \lambda \hat{B}.
 \label{eq:bivector-powers}
@@ -216,7 +216,7 @@ R = \exp\left(\frac{1}{2}\theta\hat{B}\right) = \cos\frac{\theta}{2} + \hat{B}\s
 \end{equation}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[For $\hat{B}^2 = -1$ (spatial rotations)]
 From the power series definition of the exponential:
 \begin{align}
 \exp\left(\frac{1}{2}B\right) &= \sum_{n=0}^\infty \frac{1}{n!}\left(\frac{B}{2}\right)^n\\
@@ -469,7 +469,7 @@ G_{\mu\nu} = \kappa T_{\mu\nu}^{(\mathrm{RF})},
 \end{equation}
 where
 \begin{equation}
-T_{\mu\nu}^{(\mathrm{RF})} = \frac{M_*^2}{4}\left[\scal{\Omega_\mu\Omega_\nu} - \frac{1}{2}g_{\mu\nu}\scal{\Omega_\alpha\Omega^\alpha}\right] + \alpha\partial_\mu\Phi\,\partial_\nu\Phi - g_{\mu\nu}\left[\frac{\alpha}{2}(\partial\Phi)^2 - V\right].
+T_{\mu\nu}^{(\mathrm{RF})} = \frac{M_*^2}{4}\left[\scal{\Omega_\mu\Omega_\nu} - \frac{1}{2}g_{\mu\nu}\scal{\Omega_\alpha\Omega^\alpha}\right] + \alpha\left[\partial_\mu\Phi\,\partial_\nu\Phi - \frac{1}{2}g_{\mu\nu}(\partial\Phi)^2\right] - g_{\mu\nu}V.
 \label{eq:stress-energy-tensor}
 \end{equation}
 
@@ -758,7 +758,7 @@ The rotor phase satisfies the Klein-Gordon equation:
 
 Define slow-roll parameters:
 \begin{equation}
-\epsilon \equiv \frac{1}{2}\left(\frac{V'}{V}\right)^2\frac{\alpha}{8\pi G}, \qquad \eta \equiv \frac{V''}{V}\frac{\alpha}{8\pi G}.
+\epsilon \equiv \frac{1}{2}\left(\frac{V'}{V}\right)^2 \cdot 16\pi\alpha, \qquad \eta \equiv \frac{V''}{V} \cdot 16\pi\alpha.
 \label{eq:slow-roll-params}
 \end{equation}
 
@@ -783,7 +783,8 @@ For $N \gtrsim 60$, inflation solves the horizon and flatness problems.
 
 Quantum fluctuations $\delta\Phi$ are stretched to cosmological scales. The scalar power spectrum is
 \begin{equation}
-P_s(k) = \frac{1}{8\pi^2 M_{\mathrm{Pl}}^2}\frac{H^2}{\epsilon}\bigg|_{k=aH}.
+P_s(k) = \frac{1}{8\pi^2 M_{\mathrm{Pl}}^2}\frac{H^2}{\epsilon}\bigg|_{k=aH},
+\quad M_{\mathrm{Pl}} = (8\pi G)^{-1/2}.
 \label{eq:scalar-spectrum}
 \end{equation}
 
@@ -803,7 +804,7 @@ The tensor-to-scalar ratio is
 r = \frac{P_t}{P_s} = 16\epsilon\, f_B,
 \label{eq:tensor-ratio}
 \end{equation}
-where $f_B$ is a suppression factor from bivector stiffness. Rotor inflation predicts $r \lesssim 10^{-3}$, suppressed relative to standard single-field models.
+where $f_B \in (0,1]$ is a suppression factor from bivector stiffness, derived from the rotor field's resistance to tensor deformations (see Section on effective field theory). Rotor inflation predicts $r \lesssim 10^{-3}$, suppressed relative to standard single-field models.
 
 \subsection{Parity Violation and Chiral Gravitational Waves}
 
