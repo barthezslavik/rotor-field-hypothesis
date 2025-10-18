@@ -92,49 +92,40 @@ Within this framework, the following can be obtained as mathematical consequence
 ### Core Papers
 
 **Foundational Theory**
-- `comprehensive_rotor_theory.tex` - **Main paper** (26 pages, following Einstein's 1916 methodology)
-- `rotor_field_hypothesis.tex` - Original hypothesis presentation
-- `geometric_framework_for_quantum_gravity.tex` - Quantum gravity formulation
+- [`comprehensive_rotor_theory.pdf`](comprehensive_rotor_theory.pdf) - **Main paper** (26 pages, following Einstein's 1916 methodology)
+- [`rotor_field_hypothesis.pdf`](rotor_field_hypothesis.pdf) - Original hypothesis presentation
+- [`geometric_framework_for_quantum_gravity.pdf`](geometric_framework_for_quantum_gravity.pdf) - Quantum gravity formulation
 
 **Particle Physics & Fundamental Forces**
-- `electroweak_symmetry_breaking.tex` - Electroweak scale: $M_\ast^{(\text{EW})} \approx m_t \approx 174$ GeV
-- `qcd_from_rotor_confinement.tex` - QCD confinement (flux tube-bag duality)
-- `noether.tex` - Conservation laws from rotor symmetries
-- `renormalization.tex` - RG flow and scale hierarchy
+- [`electroweak_symmetry_breaking.pdf`](electroweak_symmetry_breaking.pdf) - Electroweak scale: $M_\ast^{(\text{EW})} \approx m_t \approx 174$ GeV
+- [`qcd_from_rotor_confinement.pdf`](qcd_from_rotor_confinement.pdf) - QCD confinement (flux tube-bag duality)
+- [`noether.pdf`](noether.pdf) - Conservation laws from rotor symmetries
+- [`renormalization.pdf`](renormalization.pdf) - RG flow and scale hierarchy
 
 **Cosmology**
-- `inflation.tex` - Rotor inflation with tensor suppression $f_B = (H/M_\ast)^2$
-- `dark_energy.tex` - Dark energy as rotor vacuum
-- `dark_matter.tex` - Dark matter from bivector dephasing
+- [`inflation.pdf`](inflation.pdf) - Rotor inflation with tensor suppression $f_B = (H/M_\ast)^2$
+- [`dark_energy.pdf`](dark_energy.pdf) - Dark energy as rotor vacuum
+- [`dark_matter.pdf`](dark_matter.pdf) - Dark matter from bivector dephasing
   - Rotation curves, lensing anisotropy, sound speed constraints
-- `multiverse_from_rotor_theory.tex` - Multiverse structure
+- [`multiverse_from_rotor_theory.pdf`](multiverse_from_rotor_theory.pdf) - Multiverse structure
 
 **Astrophysics**
-- `black_hole_interior_physics.tex` - Black hole interiors
-- `neutron_stars.tex` - Neutron star structure
-- `galaxies.tex` - Galaxy formation
-- `superconductivity_superfluidity.tex` - Condensed matter
+- [`black_hole_interior_physics.pdf`](black_hole_interior_physics.pdf) - Black hole interiors
+- [`neutron_stars.pdf`](neutron_stars.pdf) - Neutron star structure
+- [`galaxies.pdf`](galaxies.pdf) - Galaxy formation
+- [`superconductivity_superfluidity.pdf`](superconductivity_superfluidity.pdf) - Condensed matter
 
 **Predictions & Education**
-- `novel_predictions.tex` - Experimental signatures
-- `school_physics_from_rotor.tex` - Educational presentation
+- [`novel_predictions.pdf`](novel_predictions.pdf) - Experimental signatures
+- [`school_physics_from_rotor.pdf`](school_physics_from_rotor.pdf) - Educational presentation
 
 ### Ukrainian Translations
-- `rotor_field_hypothesis_uk.tex`
-- `geometric_framework_for_quantum_gravity_uk.tex`
-- `electroweak_symmetry_breaking_uk.tex`
-- `qcd_from_rotor_confinement_uk.tex`
-- `noether_uk.tex`
-- `renormalization_uk.tex`
-
-### Compilation
-
-```bash
-pdflatex comprehensive_rotor_theory.tex  # Main paper
-pdflatex inflation.tex
-pdflatex dark_matter.tex
-# ... etc
-```
+- [`rotor_field_hypothesis_uk.pdf`](rotor_field_hypothesis_uk.pdf)
+- [`geometric_framework_for_quantum_gravity_uk.pdf`](geometric_framework_for_quantum_gravity_uk.pdf)
+- [`electroweak_symmetry_breaking_uk.pdf`](electroweak_symmetry_breaking_uk.pdf)
+- [`qcd_from_rotor_confinement_uk.pdf`](qcd_from_rotor_confinement_uk.pdf)
+- [`noether_uk.pdf`](noether_uk.pdf)
+- [`renormalization_uk.pdf`](renormalization_uk.pdf)
 
 ---
 
@@ -815,5 +806,3 @@ This work was conducted independently without institutional affiliation, grants,
 ---
 
 *"The potential for physics has barely been tapped."* — David Hestenes (1966)
-
-*"If observational tests support these predictions, it would suggest that geometric algebra provides a natural language for describing fundamental physics—potentially more fundamental than previously recognized."* — V. Loginov (2025)
